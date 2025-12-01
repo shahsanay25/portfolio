@@ -154,7 +154,7 @@
 
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 2.7fr) minmax(0, 2.1fr);
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.7fr);
       gap: 1.6rem;
       margin-top: 1.8rem;
       align-items: center;
@@ -204,21 +204,11 @@
       font-size: 0.95rem;
     }
 
-    .hero-main-title {
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin: 0.2rem 0 0.4rem;
-      letter-spacing: -0.03em;
-    }
-
-    .hero-main-title span {
-      color: var(--accent);
-    }
-
     .hero-subline {
       font-size: 0.95rem;
       color: var(--muted);
       margin-bottom: 0.9rem;
+      margin-top: 0.2rem;
     }
 
     .hero-card p {
@@ -234,6 +224,7 @@
       font-size: 0.82rem;
       color: var(--muted);
       margin-bottom: 1rem;
+      margin-top: 0.3rem;
     }
 
     .hero-meta span {
@@ -305,7 +296,7 @@
 
     .hero-side-card {
       background: radial-gradient(circle at top, #020617, #020617);
-      padding: 1.4rem 1.4rem 1.6rem;
+      padding: 1.6rem 1.4rem 1.6rem;
       border-radius: var(--radius-2xl);
       border: 1px solid rgba(148, 163, 184, 0.35);
       position: relative;
@@ -316,15 +307,15 @@
     .profile-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+      text-align: left;
     }
 
     .profile-pic {
-      width: 170px;
-      height: 170px;
+      width: 180px;
+      height: 180px;
       border-radius: 999px;
       object-fit: cover;
       border: 2px solid rgba(148, 163, 184, 0.7);
@@ -334,16 +325,24 @@
     .profile-hello {
       font-size: 0.9rem;
       color: var(--muted);
+      margin-top: 0.4rem;
     }
 
     .profile-name {
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
-    .profile-role {
-      font-size: 0.82rem;
+    .profile-roles {
+      font-size: 1.1rem;
+      font-weight: 500;
       color: var(--muted);
+    }
+
+    .profile-roles span {
+      color: var(--accent);
+      font-weight: 600;
     }
 
     .hero-orbit-pill {
@@ -354,6 +353,7 @@
       padding: 0.2rem 0.7rem;
       display: inline-flex;
       margin-bottom: 0.6rem;
+      margin-top: 0.4rem;
     }
 
     .hero-orbit-grid {
@@ -477,6 +477,14 @@
     .exp-meta {
       font-size: 0.8rem;
       color: var(--muted);
+    }
+
+    .exp-section-title {
+      font-weight: 600;
+      font-size: 0.84rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.2rem;
+      color: var(--text);
     }
 
     .exp-list {
@@ -660,20 +668,50 @@
     <!-- ABOUT TAB -->
     <section id="about" class="tab-content active">
       <div class="hero-layout">
+        <!-- LEFT: image + name + rotating text + snapshot -->
+        <div class="hero-side-card">
+          <div class="profile-wrapper">
+            <!-- IMPORTANT: save your photo as profile.jpeg next to this file -->
+            <img src="profile.jpeg" alt="Sanay Shah" class="profile-pic" />
+            <div class="profile-hello">Hi, I am</div>
+            <div class="profile-name">Sanay Shah</div>
+            <div class="profile-roles">
+              I am a data <span id="role-rotate">engineer</span>
+            </div>
+          </div>
+
+          <div class="hero-orbit-pill">Snapshot</div>
+          <div class="hero-orbit-grid">
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Domains</div>
+              <div class="hero-orbit-strong">Telecom, financial data, customer analytics</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Scale</div>
+              <div class="hero-orbit-strong">450 TB+ telemetry, 4.5 PB+ streaming data</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Impact</div>
+              <div class="hero-orbit-strong">18% faster pipelines, ~$2.6M+ cost savings</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Toolbox</div>
+              <div class="hero-orbit-strong">BigQuery, Airflow, Kafka, Druid, GKE, GA4</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: summary + actions -->
         <div class="hero-card">
           <div class="hero-chip">
             <span class="hero-chip-dot"></span>
             <span>GCP Certified · Data and Analytics</span>
           </div>
           <div class="hero-title-line">
-            Telecom, financial and customer analytics · BigQuery · Airflow · Looker/GA4 · Kafka · Docker
+            Data engineer and analytics engineer focused on cloud data platforms and decision making.
           </div>
-
-          <h1 class="hero-main-title">
-            I am a data <span id="role-rotate">engineer</span>
-          </h1>
           <div class="hero-subline">
-            I design and run data platforms that turn raw events into decisions at scale.
+            I build data systems that turn raw events into reliable, fast and usable insights.
           </div>
 
           <p>
@@ -683,13 +721,13 @@
             data grows.
           </p>
           <p>
-            I care about clean models, predictable pipelines and good observability, so I pair
-            SQL and Python with Docker, Kubernetes, CI/CD and monitoring tools such as Grafana
-            and ELK instead of just moving data from one place to another.
+            I use SQL and Python for data modeling, optimization and automation, ensuring pipelines are
+            efficient, reliable and easy to maintain at scale. With Docker, Kubernetes, CI/CD and monitoring
+            tools like Grafana and ELK, I support stable deployments and clear operational visibility.
           </p>
 
           <div class="hero-meta">
-            <span>📍 United States · Open to remote or hybrid roles</span>
+            <span>📍 Dallas , TX United States · Open to relocate </span>
             <span class="hero-meta-badge">Google Cloud Professional Data Engineer</span>
           </div>
 
@@ -721,46 +759,16 @@
             </a>
           </div>
         </div>
-
-        <div class="hero-side-card">
-          <div class="profile-wrapper">
-            <!-- IMPORTANT: save your photo as profile.jpeg next to this file -->
-            <img src="profile.jpeg" alt="Sanay Shah" class="profile-pic" />
-            <div class="profile-hello">Hi, I am</div>
-            <div class="profile-name">Sanay Shah</div>
-            <div class="profile-role">Data engineer · Analytics engineer</div>
-          </div>
-
-          <div class="hero-orbit-pill">Snapshot</div>
-          <div class="hero-orbit-grid">
-            <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Domains</div>
-              <div class="hero-orbit-strong">Telecom, financial data, customer analytics</div>
-            </div>
-            <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Scale</div>
-              <div class="hero-orbit-strong">450 TB+ telemetry, 4.5 PB+ streaming data</div>
-            </div>
-            <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Impact</div>
-              <div class="hero-orbit-strong">18% faster pipelines, ~$2.6M+ cost savings</div>
-            </div>
-            <div class="hero-orbit-item">
-              <div class="hero-orbit-label">Toolbox</div>
-              <div class="hero-orbit-strong">BigQuery, Airflow, Kafka, Druid, GKE, GA4</div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <section>
-        <h2 class="section-title">How I can help</h2>
+        <h2 class="section-title">How I can help ?</h2>
         <p class="section-subtitle">
           A quick view of what I bring in as a data engineer and analytics partner.
         </p>
 
         <div class="tracks-grid">
-          <!-- Card 1: Data engineering -->
+          <!-- Card 1: Data Engineering -->
           <div class="track-card">
             <div class="track-title">Design and scale data platforms</div>
             <div class="track-tagline">BigQuery · Airflow · Pub/Sub · Dataflow · Dataproc</div>
@@ -773,18 +781,19 @@
             <p class="track-footer">
               Design and run cloud data platforms that handle large volume batch and streaming
               workloads. Build BigQuery models and Airflow pipelines, migrate Hive and Spark jobs
-              to GCP and tune queries, partitions and storage formats so teams get fresh and
-              fast data instead of slow reports.
+              to GCP and tune queries and storage so teams get fresh and fast data instead of
+              slow reports.
             </p>
           </div>
 
-          <!-- Card 2: Analytics / ML-ready -->
+          <!-- Card 2: Data analytics and ML-ready data -->
           <div class="track-card">
-            <div class="track-title">Enable analytics and ML-ready data</div>
+            <div class="track-title"> Data analytics and ML ready data</div>
             <div class="track-tagline">Looker · GA4 · Tableau · Feature datasets</div>
             <div class="track-tags">
               <span class="tag">Customer insights</span>
               <span class="tag">Financial reporting</span>
+              <span class="tag">Performance insights</span>
               <span class="tag">Funnels and retention</span>
               <span class="tag">Attribution</span>
             </div>
@@ -796,9 +805,9 @@
             </p>
           </div>
 
-          <!-- Card 3: DevOps / security / quality -->
+          <!-- Card 3: Data reliability, governance, security and quality -->
           <div class="track-card">
-            <div class="track-title">Improve reliability, security and quality</div>
+            <div class="track-title">Improve data reliability, governance, security and quality</div>
             <div class="track-tagline">Docker · GKE · CI/CD · Grafana · ELK</div>
             <div class="track-tags">
               <span class="tag">Git based CI/CD</span>
@@ -809,7 +818,7 @@
             <p class="track-footer">
               Containerize workloads with Docker and Kubernetes and use GitLab or Jenkins for
               CI/CD. Add health checks, schema validation, anomaly detection and alerting through
-              Grafana, Datadog and ELK, with Slack and email notifications. Enforce IAM and LDAP
+              Grafana, Datadog and ELK with Slack and email notifications. Enforce IAM and LDAP
               based access and encrypted keys to keep data and systems secure.
             </p>
           </div>
@@ -821,7 +830,7 @@
     <section id="experience" class="tab-content">
       <h2 class="section-title">Experience</h2>
       <p class="section-subtitle">
-        A brief summary of where I have applied these skills.
+        Project based summary of how I have used these skills.
       </p>
 
       <div class="experience-grid">
@@ -831,22 +840,56 @@
             <div class="exp-title">Data and Analytics Engineer II · Prodapt (Client: Verizon)</div>
             <div class="exp-meta">United States · Oct 2023 – Present</div>
           </div>
+          <p>
+            I work on internal data platforms that power network, customer and operations
+            analytics using BigQuery, Airflow, Kafka, Druid and GKE.
+          </p>
+
+          <div class="exp-section-title">Network Service Portal</div>
           <ul class="exp-list">
             <li>
-              Lead data platform work for internal network and customer analytics, focusing on
-              BigQuery, Airflow, Kafka, Druid and GKE based services.
+              Lead integration and optimization of more than 60 ETL pipelines across GCP
+              (Airflow, BigQuery, GCS, Cloud SQL), improving runtime by about 18 percent.
             </li>
             <li>
-              Improve more than 60 ETL pipelines and clean legacy storage, supporting about
-              18 percent faster runtimes and freeing hundreds of terabytes of data.
+              Clean up and reorganize GCS storage, freeing roughly 600 TB of data by
+              standardizing Avro and Parquet and tightening retention.
             </li>
             <li>
-              Build and maintain curated BigQuery layers, stored procedures and quality checks
-              that support AIOps, operations and customer experience analytics.
+              Improve BigQuery and MySQL query patterns to reduce compute cost and support
+              reliable network and customer analytics.
             </li>
             <li>
-              Support real time tools by tuning Kafka and Druid flows, adding validation and
-              automated health checks to reduce manual investigation time.
+              Contribute to GKE blue green deployment work and a middle manager less pod setup,
+              helping unlock around 1.6 million dollars in estimated annual savings.
+            </li>
+          </ul>
+
+          <div class="exp-section-title">Real Time Tool</div>
+          <ul class="exp-list">
+            <li>
+              Support Kafka to Druid to S3 data flows for real time network and customer views,
+              tuning partitions, aggregations and queries for low latency dashboards.
+            </li>
+            <li>
+              Build Kafka parsers and validation checks so streaming data lands in a consistent,
+              analytics ready shape for downstream consumers.
+            </li>
+            <li>
+              Automate health checks and alerts using metrics and logs to cut manual
+              investigation time when data issues appear.
+            </li>
+          </ul>
+
+          <div class="exp-section-title">AIOps and semantic layers</div>
+          <ul class="exp-list">
+            <li>
+              Design BigQuery semantic layers with curated views and stored procedures that
+              support AIOps use cases and customer experience analytics.
+            </li>
+            <li>
+              Use Airflow to drive curation and quality checks and integrate with tools such as
+              Datadog to monitor freshness, volume and anomalies.
             </li>
           </ul>
         </article>
@@ -857,18 +900,44 @@
             <div class="exp-title">Data / Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
             <div class="exp-meta">United States · May 2022 – Jan 2023</div>
           </div>
+          <p>
+            During my internship I contributed to migration, analytics and early NLP pipelines
+            for network and customer support teams.
+          </p>
+
+          <div class="exp-section-title">Migration project</div>
           <ul class="exp-list">
             <li>
-              Helped migrate more than 70 Hive and Spark jobs into BigQuery and Airflow, saving
-              infrastructure cost and simplifying ETL logic.
+              Helped migrate more than 70 Hive and Spark jobs to BigQuery and Airflow flows,
+              refactoring ETL logic in Python and SQL to reduce cost and complexity.
             </li>
             <li>
-              Worked with Teradata, PostgreSQL and Druid to build and optimize datasets and
-              queries for operations, customer and financial analytics.
+              Tuned Druid and BigQuery queries and partitions, improving dashboard performance
+              by around 65 percent for operational users.
+            </li>
+          </ul>
+
+          <div class="exp-section-title">Analytics datasets</div>
+          <ul class="exp-list">
+            <li>
+              Used Teradata SQL and PostgreSQL to build joined and cleaned datasets for
+              operations, customer and financial reporting.
             </li>
             <li>
-              Supported early NLP based ticket classification and data pipelines used to route
-              and analyze support tickets.
+              Built small Python ETL and API scripts that delivered data into dashboards with
+              faster processing times.
+            </li>
+          </ul>
+
+          <div class="exp-section-title">NLP ticket classification</div>
+          <ul class="exp-list">
+            <li>
+              Contributed to pipelines that classify support tickets into topics and categories
+              so work can be routed to the right teams.
+            </li>
+            <li>
+              Helped refine monitoring and evaluation so classification results stayed reliable
+              in production.
             </li>
           </ul>
         </article>
@@ -879,18 +948,39 @@
             <div class="exp-title">Senior Data / Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
             <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
           </div>
+          <p>
+            At a financial client I worked on ETL and data marts for regulatory, risk and
+            portfolio reporting using Informatica and SQL.
+          </p>
+
+          <div class="exp-section-title">Data pipelines</div>
           <ul class="exp-list">
             <li>
-              Maintained ETL pipelines in Informatica that brought market and reference data
-              into IBM DB2 for regulatory, risk and portfolio reporting.
+              Maintained more than 40 ETL and ELT pipelines in Informatica to bring Capital IQ,
+              FactSet and other market data into IBM DB2 with governance and lineage.
+            </li>
+          </ul>
+
+          <div class="exp-section-title">Modeling and reporting</div>
+          <ul class="exp-list">
+            <li>
+              Designed star and snowflake models with slowly changing dimensions for risk and
+              portfolio analytics.
             </li>
             <li>
-              Designed dimensional models with slowly changing dimensions and supported
-              reporting for finance and risk teams.
+              Supported SQL and Tableau style reporting for finance and risk teams.
+            </li>
+          </ul>
+
+          <div class="exp-section-title">Release and collaboration</div>
+          <ul class="exp-list">
+            <li>
+              Used Git and Jenkins for ETL releases, helping reduce deployment issues and keep
+              changes controlled.
             </li>
             <li>
-              Used Git and Jenkins for controlled releases and worked with stakeholders to
-              align metrics, requirements and data flows.
+              Worked with risk, analytics and technology teams to align requirements, KPIs and
+              data flows under an Agile model.
             </li>
           </ul>
         </article>
@@ -911,7 +1001,7 @@
             GA4 · BigQuery · Looker · Customer analytics
           </div>
           <p>
-            Modeled GA4 event streams for website journeys into clean acquisition to retention
+            Modeled GA4 event streams for website journeys into acquisition to retention
             funnels and path views, helping product and marketing teams see drop offs and
             conversion impact in Looker.
           </p>
@@ -1090,12 +1180,12 @@
           <p>
             <strong>Master of Science, Data Analytics Engineering</strong><br />
             Northeastern University · Boston, MA · United States<br />
-            Graduated Aug 2023 · GPA 3.86 / 4.0
+          
           </p>
           <p>
             <strong>Bachelor of Science, Electronics and Telecommunications</strong><br />
-            University of Mumbai · Mumbai · India<br />
-            Graduated Jul 2019 · GPA 3.36 / 4.0
+            University of Mumbai · Mumbai, MH · India<br />
+           
           </p>
         </div>
 
@@ -1126,7 +1216,7 @@
     <section id="contact" class="tab-content">
       <h2 class="section-title">Contact</h2>
       <p class="section-subtitle">
-        Open to data platform, analytics engineering and cloud or MLOps roles. Happy to connect
+        Open to data engineering, analytics engineering and cloud or MLOps roles. Happy to connect
         about data problems and platforms in general too.
       </p>
 
