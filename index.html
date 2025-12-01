@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sanay Shah | Data & Analytics Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Sanay Shah, GCP-certified Data & Analytics Engineer working on telecom, financial, and customer analytics using BigQuery, Airflow, Looker/GA4, Kafka, Docker, and MLOps."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-strong: #0ea5e9;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.75);
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 48%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-strong);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.25rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--accent);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    /* Tabs */
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Hero / About */
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.7fr) minmax(0, 2.1fr);
+      gap: 1.6rem;
+      margin-top: 1.8rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1e293b, #020617);
+      padding: 1.8rem;
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.4);
+    }
+
+    .hero-title-line {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-main-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin: 0.2rem 0 0.4rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-main-title span {
+      color: var(--accent);
+    }
+
+    .hero-subline {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card p {
+      margin: 0.45rem 0 0.7rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-badge {
+      padding: 0.1rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      background: rgba(37, 99, 235, 0.15);
+      color: #bfdbfe;
+      font-size: 0.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-side-card {
+      background: radial-gradient(circle at top, #020617, #020617);
+      padding: 1.4rem 1.4rem 1.6rem;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.9);
+    }
+
+    .profile-hello {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .profile-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .profile-role {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-orbit-pill {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.2rem 0.7rem;
+      display: inline-flex;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-orbit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      font-size: 0.78rem;
+      margin-top: 0.2rem;
+    }
+
+    .hero-orbit-item {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent);
+      border-radius: var(--radius-xl);
+      padding: 0.6rem 0.65rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-orbit-label {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-orbit-strong {
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    /* How I can help */
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .tracks-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .tracks-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .track-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1.1rem 1.1rem 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .track-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .track-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .track-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--muted);
+    }
+
+    .track-footer {
+      font-size: 0.77rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Experience */
+
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .exp-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1.1rem 1.2rem 1rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .exp-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .exp-list {
+      padding-left: 1rem;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    .exp-list li {
+      margin-bottom: 0.18rem;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .skill-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .skill-body span {
+      display: inline-block;
+      margin-right: 0.3rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .resume-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .resume-badge {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+      color: var(--text);
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Education */
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .edu-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .edu-title {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    .cert-list {
+      padding-left: 1rem;
+      margin: 0.4rem 0 0;
+    }
+
+    /* Contact */
+
+    .contact-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 1rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.2rem 1.25rem 2.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">SANAY SHAH</div>
+      <nav>
+        <ul>
+          <li><a data-tab="about" class="active">About</a></li>
+          <li><a data-tab="experience">Experience</a></li>
+          <li><a data-tab="projects">Projects</a></li>
+          <li><a data-tab="skills">Skills</a></li>
+          <li><a data-tab="education">Education</a></li>
+          <li><a data-tab="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-cta" data-tab="contact">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT TAB -->
+    <section id="about" class="tab-content active">
+      <div class="hero-layout">
+        <div class="hero-card">
+          <div class="hero-chip">
+            <span class="hero-chip-dot"></span>
+            <span>GCP Certified · Data and Analytics</span>
+          </div>
+          <div class="hero-title-line">
+            Telecom, financial and customer analytics · BigQuery · Airflow · Looker/GA4 · Kafka · Docker
+          </div>
+
+          <h1 class="hero-main-title">
+            I am a data <span id="role-rotate">engineer</span>
+          </h1>
+          <div class="hero-subline">
+            I design and run data platforms that turn raw events into decisions at scale.
+          </div>
+
+          <p>
+            I am a GCP certified data and analytics engineer with more than five years of experience
+            across telecom and financial domains. I work with BigQuery, Airflow, Kafka, Pub/Sub,
+            Dataflow and Dataproc to build batch and streaming pipelines that stay reliable as
+            data grows.
+          </p>
+          <p>
+            I care about clean models, predictable pipelines and good observability, so I pair
+            SQL and Python with Docker, Kubernetes, CI/CD and monitoring tools such as Grafana
+            and ELK instead of just moving data from one place to another.
+          </p>
+
+          <div class="hero-meta">
+            <span>📍 United States · Open to remote or hybrid roles</span>
+            <span class="hero-meta-badge">Google Cloud Professional Data Engineer</span>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="https://www.linkedin.com/in/shahsanay25"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="btn btn-ghost"
+              href="https://github.com/shahsanay25"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>
+            <!-- Replace # with your actual resume PDF link -->
+            <a
+              class="btn btn-outline"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-side-card">
+          <div class="profile-wrapper">
+            <!-- IMPORTANT: save your photo as profile.jpeg next to this file -->
+            <img src="profile.jpeg" alt="Sanay Shah" class="profile-pic" />
+            <div class="profile-hello">Hi, I am</div>
+            <div class="profile-name">Sanay Shah</div>
+            <div class="profile-role">Data engineer · Analytics engineer</div>
+          </div>
+
+          <div class="hero-orbit-pill">Snapshot</div>
+          <div class="hero-orbit-grid">
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Domains</div>
+              <div class="hero-orbit-strong">Telecom, financial data, customer analytics</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Scale</div>
+              <div class="hero-orbit-strong">450 TB+ telemetry, 4.5 PB+ streaming data</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Impact</div>
+              <div class="hero-orbit-strong">18% faster pipelines, ~$2.6M+ cost savings</div>
+            </div>
+            <div class="hero-orbit-item">
+              <div class="hero-orbit-label">Toolbox</div>
+              <div class="hero-orbit-strong">BigQuery, Airflow, Kafka, Druid, GKE, GA4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <h2 class="section-title">How I can help</h2>
+        <p class="section-subtitle">
+          A quick view of what I bring in as a data engineer and analytics partner.
+        </p>
+
+        <div class="tracks-grid">
+          <!-- Card 1: Data engineering -->
+          <div class="track-card">
+            <div class="track-title">Design and scale data platforms</div>
+            <div class="track-tagline">BigQuery · Airflow · Pub/Sub · Dataflow · Dataproc</div>
+            <div class="track-tags">
+              <span class="tag">ETL and ELT</span>
+              <span class="tag">Petabyte scale</span>
+              <span class="tag">Semantic layers</span>
+              <span class="tag">dbt style modeling</span>
+            </div>
+            <p class="track-footer">
+              Design and run cloud data platforms that handle large volume batch and streaming
+              workloads. Build BigQuery models and Airflow pipelines, migrate Hive and Spark jobs
+              to GCP and tune queries, partitions and storage formats so teams get fresh and
+              fast data instead of slow reports.
+            </p>
+          </div>
+
+          <!-- Card 2: Analytics / ML-ready -->
+          <div class="track-card">
+            <div class="track-title">Enable analytics and ML-ready data</div>
+            <div class="track-tagline">Looker · GA4 · Tableau · Feature datasets</div>
+            <div class="track-tags">
+              <span class="tag">Customer insights</span>
+              <span class="tag">Financial reporting</span>
+              <span class="tag">Funnels and retention</span>
+              <span class="tag">Attribution</span>
+            </div>
+            <p class="track-footer">
+              Turn GA4 events, telemetry and business tables into analytics ready datasets,
+              funnels and KPIs. Support dashboards in Looker, Tableau and Power BI and provide
+              clean feature tables for ML use cases such as churn, anomaly detection and ticket
+              classification.
+            </p>
+          </div>
+
+          <!-- Card 3: DevOps / security / quality -->
+          <div class="track-card">
+            <div class="track-title">Improve reliability, security and quality</div>
+            <div class="track-tagline">Docker · GKE · CI/CD · Grafana · ELK</div>
+            <div class="track-tags">
+              <span class="tag">Git based CI/CD</span>
+              <span class="tag">Data quality checks</span>
+              <span class="tag">IAM and LDAP</span>
+              <span class="tag">Encrypted keys</span>
+            </div>
+            <p class="track-footer">
+              Containerize workloads with Docker and Kubernetes and use GitLab or Jenkins for
+              CI/CD. Add health checks, schema validation, anomaly detection and alerting through
+              Grafana, Datadog and ELK, with Slack and email notifications. Enforce IAM and LDAP
+              based access and encrypted keys to keep data and systems secure.
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- EXPERIENCE TAB -->
+    <section id="experience" class="tab-content">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">
+        A brief summary of where I have applied these skills.
+      </p>
+
+      <div class="experience-grid">
+        <!-- Prodapt full-time -->
+        <article class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Data and Analytics Engineer II · Prodapt (Client: Verizon)</div>
+            <div class="exp-meta">United States · Oct 2023 – Present</div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Lead data platform work for internal network and customer analytics, focusing on
+              BigQuery, Airflow, Kafka, Druid and GKE based services.
+            </li>
+            <li>
+              Improve more than 60 ETL pipelines and clean legacy storage, supporting about
+              18 percent faster runtimes and freeing hundreds of terabytes of data.
+            </li>
+            <li>
+              Build and maintain curated BigQuery layers, stored procedures and quality checks
+              that support AIOps, operations and customer experience analytics.
+            </li>
+            <li>
+              Support real time tools by tuning Kafka and Druid flows, adding validation and
+              automated health checks to reduce manual investigation time.
+            </li>
+          </ul>
+        </article>
+
+        <!-- Prodapt internship -->
+        <article class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Data / Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
+            <div class="exp-meta">United States · May 2022 – Jan 2023</div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Helped migrate more than 70 Hive and Spark jobs into BigQuery and Airflow, saving
+              infrastructure cost and simplifying ETL logic.
+            </li>
+            <li>
+              Worked with Teradata, PostgreSQL and Druid to build and optimize datasets and
+              queries for operations, customer and financial analytics.
+            </li>
+            <li>
+              Supported early NLP based ticket classification and data pipelines used to route
+              and analyze support tickets.
+            </li>
+          </ul>
+        </article>
+
+        <!-- Capgemini -->
+        <article class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Senior Data / Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
+            <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Maintained ETL pipelines in Informatica that brought market and reference data
+              into IBM DB2 for regulatory, risk and portfolio reporting.
+            </li>
+            <li>
+              Designed dimensional models with slowly changing dimensions and supported
+              reporting for finance and risk teams.
+            </li>
+            <li>
+              Used Git and Jenkins for controlled releases and worked with stakeholders to
+              align metrics, requirements and data flows.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS TAB -->
+    <section id="projects" class="tab-content">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        A few examples of analytics and ML work I have done or explored.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title">Website journey analytics and GA4 funnels</div>
+          <div class="project-meta">
+            GA4 · BigQuery · Looker · Customer analytics
+          </div>
+          <p>
+            Modeled GA4 event streams for website journeys into clean acquisition to retention
+            funnels and path views, helping product and marketing teams see drop offs and
+            conversion impact in Looker.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">NYC Taxi Insights</div>
+          <div class="project-meta">
+            Python · Data analysis ·
+            <a href="https://github.com/shahsanay25/NYC-Taxi-Insights" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Exploratory analysis of NYC taxi trips to understand demand patterns, fares and
+            usage across time and regions.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Credit Risk Assessment Model</div>
+          <div class="project-meta">
+            Jupyter Notebook · Machine learning ·
+            <a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Built and evaluated models for credit risk prediction using customer behavior and
+            payment history data.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Bank Term Deposit Subscription Classifier</div>
+          <div class="project-meta">
+            Jupyter Notebook · Classification ·
+            <a href="https://github.com/shahsanay25/Bank-Term-Deposit-Subscription-Classifier" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Classification model to estimate which customers are likely to subscribe to a term
+            deposit using demographic and campaign data.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Web Traffic on E-commerce Platform</div>
+          <div class="project-meta">
+            Analytics ·
+            <a href="https://github.com/shahsanay25/Web-Traffic-on-E-commerce-Platform" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Analysis of website traffic patterns and product performance for an ecommerce
+            scenario.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Hospital Management System</div>
+          <div class="project-meta">
+            SQL · T-SQL ·
+            <a href="https://github.com/shahsanay25/Hospital-Management-System" target="_blank" rel="noopener">
+              GitHub
+            </a>
+          </div>
+          <p>
+            Relational schema and SQL queries for managing patients, appointments and resources
+            in a hospital.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS TAB -->
+    <section id="skills" class="tab-content">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">
+        The tools, platforms and concepts I use most often.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-title">Core strengths</div>
+          <div class="skill-body">
+            <span>ETL and ELT architecture</span>
+            <span>Semantic and KPI modeling</span>
+            <span>dbt style transformations</span>
+            <span>SQL performance tuning</span>
+            <span>Streaming telemetry pipelines</span>
+            <span>Data quality and observability</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Cloud and databases</div>
+          <div class="skill-body">
+            <span>GCP: BigQuery, GCS, Pub/Sub, Dataflow, GKE, Vertex AI, Data Catalog, Dataproc</span>
+            <span>AWS: Redshift, S3, Glue</span>
+            <span>MySQL, PostgreSQL, Teradata, IBM DB2</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Streaming and data platforms</div>
+          <div class="skill-body">
+            <span>Apache Kafka</span>
+            <span>Apache Druid</span>
+            <span>Apache Spark and PySpark</span>
+            <span>Hadoop</span>
+            <span>Snowflake</span>
+            <span>NoSQL: Cassandra</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Analytics and BI</div>
+          <div class="skill-body">
+            <span>Looker and LookML</span>
+            <span>Google Analytics 4 (funnels, retention, attribution)</span>
+            <span>Tableau</span>
+            <span>Power BI</span>
+            <span>Experimentation datasets</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">MLOps, DevOps and tooling</div>
+          <div class="skill-body">
+            <span>Python, SQL, Shell</span>
+            <span>Airflow</span>
+            <span>Docker</span>
+            <span>Kubernetes and GKE</span>
+            <span>Git, GitLab CI/CD, Jenkins, ArgoCD</span>
+            <span>Terraform, Ansible</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">AI, automation and security</div>
+          <div class="skill-body">
+            <span>NLP ticket classification and routing</span>
+            <span>Anomaly detection on streaming telemetry</span>
+            <span>ML feature pipelines with Vertex AI and BigQuery ML</span>
+            <span>Prometheus, Grafana, Datadog and ELK monitoring</span>
+            <span>Slack and email alerting for pipeline health</span>
+            <span>IAM, LDAP based access and encrypted keys</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-badges">
+        <!-- Replace # with your certificate verification URLs -->
+        <a class="resume-badge" href="#" target="_blank" rel="noopener">
+          Google Cloud Certified Professional Data Engineer
+        </a>
+        <a class="resume-badge" href="#" target="_blank" rel="noopener">
+          Google Cloud Certified Associate (GCP)
+        </a>
+        <a class="resume-badge" href="#" target="_blank" rel="noopener">
+          Oracle SQL Developer Certified
+        </a>
+      </div>
+    </section>
+
+    <!-- EDUCATION TAB -->
+    <section id="education" class="tab-content">
+      <h2 class="section-title">Education and certifications</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-title">Education</div>
+          <p>
+            <strong>Master of Science, Data Analytics Engineering</strong><br />
+            Northeastern University · Boston, MA · United States<br />
+            Graduated Aug 2023 · GPA 3.86 / 4.0
+          </p>
+          <p>
+            <strong>Bachelor of Science, Electronics and Telecommunications</strong><br />
+            University of Mumbai · Mumbai · India<br />
+            Graduated Jul 2019 · GPA 3.36 / 4.0
+          </p>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-title">Certifications</div>
+          <ul class="cert-list">
+            <li>
+              <a href="#" target="_blank" rel="noopener">
+                Google Cloud Certified Professional Data Engineer
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener">
+                Google Cloud Certified Associate (GCP)
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener">
+                Oracle SQL Developer Certified
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT TAB -->
+    <section id="contact" class="tab-content">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Open to data platform, analytics engineering and cloud or MLOps roles. Happy to connect
+        about data problems and platforms in general too.
+      </p>
+
+      <div class="contact-card">
+        <div>📧 <strong>Email</strong>: <a href="mailto:shahsanay25@gmail.com">shahsanay25@gmail.com</a></div>
+        <div>📱 <strong>Phone</strong>: 857-318-6077 (US)</div>
+        <div>🔗 <strong>Links</strong>:</div>
+        <ul>
+          <li>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/shahsanay25" target="_blank" rel="noopener">
+              linkedin.com/in/shahsanay25
+            </a>
+          </li>
+          <li>
+            GitHub:
+            <a href="https://github.com/shahsanay25" target="_blank" rel="noopener">
+              github.com/shahsanay25
+            </a>
+          </li>
+        </ul>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:shahsanay25@gmail.com?subject=Opportunity%20for%20Data%20%26%20Analytics%20Engineer">
+            Email me
+          </a>
+          <button class="btn btn-ghost" data-tab="about">Back to About</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> · Built by Sanay Shah · Host on GitHub Pages, Netlify, or your cloud of choice.
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple tab navigation
+    const tabLinks = document.querySelectorAll("[data-tab]");
+    const sections = document.querySelectorAll(".tab-content");
+
+    function activateTab(name) {
+      sections.forEach((sec) => {
+        sec.classList.toggle("active", sec.id === name);
+      });
+
+      // update nav link active state
+      const navLinks = document.querySelectorAll("nav a[data-tab]");
+      navLinks.forEach((lnk) => {
+        lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const tabName = link.getAttribute("data-tab");
+        if (tabName) {
+          activateTab(tabName);
+        }
+      });
+    });
+
+    // Rotating role text: engineer / analyst
+    const roles = ["engineer", "analyst"];
+    let roleIndex = 0;
+    const roleSpan = document.getElementById("role-rotate");
+
+    if (roleSpan) {
+      setInterval(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        roleSpan.textContent = roles[roleIndex];
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
