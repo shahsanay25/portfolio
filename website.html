@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sanay Shah | Data & Analytics Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Sanay Shah, GCP-certified Data & Analytics Engineer specializing in BigQuery, Airflow, Looker/GA4, Kafka, Docker, MLOps, and AI-powered automation."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --accent-strong: #0ea5e9;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.75);
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 48%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-strong);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.25rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--accent);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      background: radial-gradient(circle at top left, var(--accent-soft), transparent);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    section {
+      margin-top: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.3fr);
+      gap: 1.8rem;
+      margin-top: 1.8rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1e293b, #020617);
+      padding: 1.8rem;
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.4);
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      margin: 0 0 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-title-line {
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero p {
+      margin: 0.7rem 0 1.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-badge {
+      padding: 0.1rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      background: rgba(37, 99, 235, 0.15);
+      color: #bfdbfe;
+      font-size: 0.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-orbit-card {
+      background: radial-gradient(circle at top, #020617, #020617);
+      padding: 1.6rem 1.5rem;
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-orbit-pill {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.2rem 0.7rem;
+      display: inline-flex;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-orbit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      font-size: 0.78rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-orbit-item {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent);
+      border-radius: var(--radius-xl);
+      padding: 0.6rem 0.65rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-orbit-label {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-orbit-strong {
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    /* Generic grids */
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .tracks-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .tracks-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .track-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1.1rem 1.1rem 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .track-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .track-tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .track-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--muted);
+    }
+
+    .track-footer {
+      font-size: 0.77rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .exp-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1.1rem 1.2rem 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.3rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .exp-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .exp-meta span {
+      display: inline-block;
+      margin-left: 0.4rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-tag {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--muted);
+    }
+
+    .exp-list {
+      padding-left: 1rem;
+      margin: 0.4rem 0 0.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .exp-list li {
+      margin-bottom: 0.22rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .skill-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-body {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .skill-body span {
+      display: inline-block;
+      margin-right: 0.3rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .project-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 880px) {
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .edu-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .edu-title {
+      font-size: 0.93rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    .edu-line {
+      margin-bottom: 0.25rem;
+    }
+
+    .cert-list {
+      padding-left: 1rem;
+      margin: 0.4rem 0 0;
+    }
+
+    .cert-list li {
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem 1rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.2rem 1.25rem 2.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .resume-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .resume-badge {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">SANAY SHAH</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tracks">What I do</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / About -->
+    <section id="about" class="hero">
+      <div class="hero-card">
+        <div class="hero-chip">
+          <span class="hero-chip-dot"></span>
+          <span>GCP Certified · Data & Analytics Engineer</span>
+        </div>
+        <div class="hero-title-line">
+          Data & Analytics Engineer · BigQuery · Airflow · Looker/GA4 · Kafka · Docker · MLOps
+        </div>
+        <h1>Hi, I’m <span>Sanay</span>.</h1>
+        <p>
+          I’m a Data & Analytics Engineer (GCP-certified) with 5+ years of experience building BigQuery data
+          models, Airflow ELT pipelines, and Looker/GA4 dashboards on top of petabyte-scale data.
+          I also work hands-on with Docker, Kubernetes, CI/CD, and ML/AI pipelines (Vertex AI, NLP, anomaly
+          detection) to reduce manual work and make data products more reliable and faster to ship.
+        </p>
+
+        <div class="hero-meta">
+          <span>📍 United States · Open to remote / hybrid</span>
+          <span class="hero-meta-badge">Google Cloud Professional Data Engineer</span>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="https://www.linkedin.com/in/shahsanay25"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/shahsanay25"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+          <!-- Replace # with your actual resume PDF link -->
+          <a
+            class="btn btn-outline"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            Download Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-orbit-card">
+        <div class="hero-orbit-pill">Snapshot</div>
+        <div class="hero-orbit-grid">
+          <div class="hero-orbit-item">
+            <div class="hero-orbit-label">Platform scale</div>
+            <div class="hero-orbit-strong">5 PB+ telemetry · 4.5 PB+ streaming</div>
+          </div>
+          <div class="hero-orbit-item">
+            <div class="hero-orbit-label">Performance & reliability</div>
+            <div class="hero-orbit-strong">18% faster pipelines · 70% MTTR reduction</div>
+          </div>
+          <div class="hero-orbit-item">
+            <div class="hero-orbit-label">Product analytics</div>
+            <div class="hero-orbit-strong">GA4 funnels · +28% attribution accuracy</div>
+          </div>
+          <div class="hero-orbit-item">
+            <div class="hero-orbit-label">Cloud & MLOps</div>
+            <div class="hero-orbit-strong">GKE · Vertex AI · CI/CD · blue–green</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I do -->
+    <section id="tracks">
+      <h2 class="section-title">What I do</h2>
+      <p class="section-subtitle">
+        I design and run data platforms that combine strong analytics modeling, reliable pipelines,
+        and practical use of ML/AI and DevOps to keep things fast and stable.
+      </p>
+
+      <div class="tracks-grid">
+        <div class="track-card">
+          <div class="track-title">Data platforms & pipelines</div>
+          <div class="track-tagline">BigQuery · Airflow · Kafka · Druid</div>
+          <div class="track-tags">
+            <span class="tag">ETL/ELT</span>
+            <span class="tag">Semantic modeling</span>
+            <span class="tag">KPI governance</span>
+            <span class="tag">Data quality</span>
+          </div>
+          <p class="track-footer">
+            Build and optimize pipelines and warehouse schemas that move petabyte-scale data reliably,
+            with strong metric definitions and performance tuning.
+          </p>
+        </div>
+
+        <div class="track-card">
+          <div class="track-title">Analytics & product insights</div>
+          <div class="track-tagline">Looker · GA4 · Experimentation</div>
+          <div class="track-tags">
+            <span class="tag">Funnels & retention</span>
+            <span class="tag">Attribution</span>
+            <span class="tag">A/B testing datasets</span>
+            <span class="tag">Self-serve BI</span>
+          </div>
+          <p class="track-footer">
+            Model GA4 and event data into usable funnels, retention views, and GTM dashboards that help
+            PMs and marketers understand acquisition, activation, and churn.
+          </p>
+        </div>
+
+        <div class="track-card">
+          <div class="track-title">ML, AI & DevOps</div>
+          <div class="track-tagline">Vertex AI · Docker · GKE · CI/CD</div>
+          <div class="track-tags">
+            <span class="tag">NLP ticket classification</span>
+            <span class="tag">Anomaly detection</span>
+            <span class="tag">GitLab CI/CD</span>
+            <span class="tag">Blue–green deploys</span>
+          </div>
+          <p class="track-footer">
+            Use ML and automation to reduce manual triage and analysis, containerize workloads with
+            Docker on Kubernetes, and ship faster with GitOps-style CI/CD and observability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">
+        Telecom and financial data platforms at petabyte scale, spanning analytics engineering,
+        data engineering, and cloud/MLOps.
+      </p>
+
+      <div class="experience-grid">
+        <article class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Data & Analytics Engineer II · Prodapt (Client: Verizon)</div>
+            <div class="exp-meta">
+              Oct 2023 – Present<span>United States</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">GCP</span>
+            <span class="exp-tag">BigQuery</span>
+            <span class="exp-tag">Airflow</span>
+            <span class="exp-tag">Kafka · Druid</span>
+            <span class="exp-tag">Looker · GA4</span>
+            <span class="exp-tag">GKE · Terraform</span>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Led the integration of 60+ Airflow pipelines processing petabyte-scale data across
+              BigQuery and GCS, improving query performance and cutting runtime by 18 percent.
+            </li>
+            <li>
+              Architected curated BigQuery semantic layers and dbt-style models powering GraphQL
+              APIs, Looker dashboards, and ML feature pipelines, unifying 45+ ETL workflows into
+              governed metric foundations and improving KPI trust by ~40 percent.
+            </li>
+            <li>
+              Designed GA4-based product funnels and retention dashboards in Looker, improving
+              event taxonomy and attribution measurement for a ~28 percent uplift in reporting
+              accuracy and self-serve insight generation.
+            </li>
+            <li>
+              Developed real-time ingestion pipelines for 4.5 PB+ of telemetry using Kafka, Druid,
+              and AWS S3 deep storage, delivering sub-second analytics for network health, churn
+              risk, and anomaly detection.
+            </li>
+            <li>
+              Implemented observability with Prometheus, Grafana, and Elasticsearch, including
+              schema validation, freshness checks, and anomaly detection, reducing MTTR by ~70
+              percent across critical data products.
+            </li>
+            <li>
+              Managed GCP data infrastructure with Docker, GKE, Helm, and Terraform; containerized
+              100+ ETL workloads and standardized CI/CD with GitLab and ArgoCD for reliable, repeatable
+              deployments.
+            </li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Data / Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
+            <div class="exp-meta">
+              May 2022 – Jan 2023<span>United States</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Hive · Spark → BigQuery</span>
+            <span class="exp-tag">Airflow</span>
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">Druid</span>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Migrated 76 on-prem Hive and Spark jobs to BigQuery with Airflow orchestration,
+              refactoring ETL logic in Python and reducing infrastructure costs by approximately
+              $1M annually.
+            </li>
+            <li>
+              Designed and optimized 40+ distributed Druid and BigQuery models over
+              petabyte-scale datasets using partitioning, indexing, caching, and materialized views,
+              boosting dashboard performance by ~65 percent.
+            </li>
+            <li>
+              Built Python-based ETL pipelines and Flask APIs integrating Teradata, PostgreSQL, and
+              BigQuery to power dashboards with ~33 percent faster processing.
+            </li>
+            <li>
+              Automated data validation and data quality checks via REST APIs and observability
+              metrics, achieving ~90 percent reliability and reducing recovery time by ~35 percent.
+            </li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-header">
+            <div class="exp-title">Senior Data / Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
+            <div class="exp-meta">
+              Sep 2019 – Jul 2021<span>India</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Informatica</span>
+            <span class="exp-tag">IBM DB2</span>
+            <span class="exp-tag">Dimensional modeling</span>
+            <span class="exp-tag">Tableau</span>
+          </div>
+          <ul class="exp-list">
+            <li>
+              Engineered and maintained 40+ ETL/ELT pipelines in Informatica, integrating Capital IQ,
+              FactSet, and Bloomberg data into IBM DB2 with lineage and governance controls for
+              regulatory and risk reporting.
+            </li>
+            <li>
+              Modeled analytical data marts with star and snowflake schemas (SCD Types 1–3) to support
+              regulatory compliance, portfolio analytics, and enterprise metadata tracking.
+            </li>
+            <li>
+              Automated CI/CD for SQL and ETL workflows via Git and Jenkins, improving deployment
+              reliability by about 40 percent and shortening release cycles.
+            </li>
+            <li>
+              Partnered with risk, analytics, and data science teams to define KPIs, document data
+              flows, and coordinate upstream/downstream integrations under Agile SDLC.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">
+        Strong in SQL, cloud-native data engineering, analytics modeling, and operational reliability,
+        with practical ML/AI and DevOps experience.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-title">Core strengths</div>
+          <div class="skill-body">
+            <span>ELT architecture</span>
+            <span>Semantic & KPI modeling</span>
+            <span>dbt-style transformations</span>
+            <span>SQL optimization</span>
+            <span>Streaming telemetry pipelines</span>
+            <span>Data quality & observability</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Cloud & databases</div>
+          <div class="skill-body">
+            <span>GCP: BigQuery, GCS, Pub/Sub, Dataflow, GKE, Vertex AI, Data Catalog</span>
+            <span>AWS: Redshift, S3, Glue</span>
+            <span>MySQL, PostgreSQL, Teradata, IBM DB2</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Streaming & data platforms</div>
+          <div class="skill-body">
+            <span>Apache Kafka</span>
+            <span>Apache Druid</span>
+            <span>Apache Spark</span>
+            <span>Hadoop</span>
+            <span>Snowflake</span>
+            <span>NoSQL: Cassandra</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Analytics & BI</div>
+          <div class="skill-body">
+            <span>Looker (LookML, semantic layers)</span>
+            <span>Google Analytics 4 (funnels, retention, attribution)</span>
+            <span>Tableau</span>
+            <span>Power BI</span>
+            <span>A/B testing datasets</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">MLOps, DevOps & tooling</div>
+          <div class="skill-body">
+            <span>Python · SQL · Shell</span>
+            <span>Airflow</span>
+            <span>Docker</span>
+            <span>Kubernetes · GKE</span>
+            <span>GitLab CI/CD, Jenkins, ArgoCD</span>
+            <span>Terraform, Ansible</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">AI & automation in practice</div>
+          <div class="skill-body">
+            <span>NLP-based ticket classification and routing</span>
+            <span>Anomaly detection on streaming telemetry</span>
+            <span>ML feature pipelines with Vertex AI / BigQuery ML</span>
+            <span>Automated health checks, alerts, and SLO monitoring</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-badges">
+        <div class="resume-badge">Google Cloud Certified Professional Data Engineer</div>
+        <div class="resume-badge">Oracle SQL Developer Certified</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Selected projects</h2>
+      <p class="section-subtitle">
+        A mix of production data platforms and portfolio projects from GitHub.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-title">Verizon real-time telemetry platform</div>
+          <div class="project-meta">Prodapt · GCP · Kafka · Druid · BigQuery · Looker</div>
+          <p class="project-desc">
+            Built streaming pipelines ingesting 4.5 PB+ of wireless and wireline telemetry into
+            Kafka, Druid, and BigQuery. Designed rollups powering real-time network health and
+            device availability dashboards and anomaly detection for millions of enterprise nodes.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">GA4 product funnel and attribution modeling</div>
+          <div class="project-meta">Prodapt · GA4 · BigQuery · Looker</div>
+          <p class="project-desc">
+            Modeled GA4 event data into acquisition → activation → retention funnels, standardized
+            UTM and event taxonomy, and delivered Looker dashboards that improved marketing attribution
+            accuracy by approximately 28 percent and supported experimentation frameworks.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">NYC Taxi Insights</div>
+          <div class="project-meta">
+            GitHub · Python · Data analysis
+            &mdash;
+            <a href="https://github.com/shahsanay25/NYC-Taxi-Insights" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
+          </div>
+          <p class="project-desc">
+            Analyzed trip and fare data for industry optimization, exploring spatial and temporal
+            patterns in NYC taxi rides to understand demand, pricing, and utilization trends.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Credit Risk Assessment Model</div>
+          <div class="project-meta">
+            GitHub · Jupyter Notebook · Machine learning
+            &mdash;
+            <a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
+          </div>
+          <p class="project-desc">
+            Developed and evaluated models for credit risk prediction, focusing on feature
+            engineering and imbalanced classification metrics to identify high-risk borrowers
+            using historical loan behavior.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Web Traffic on E-commerce Platform</div>
+          <div class="project-meta">
+            GitHub · Analytics
+            &mdash;
+            <a href="https://github.com/shahsanay25/Web-Traffic-on-E-commerce-Platform" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
+          </div>
+          <p class="project-desc">
+            Analyzed website traffic and sales trends for an e-commerce platform to understand
+            product performance, seasonal patterns, and customer behavior across lifestyle and
+            fashion segments.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-title">Hospital Management System</div>
+          <div class="project-meta">
+            GitHub · SQL · T-SQL
+            &mdash;
+            <a href="https://github.com/shahsanay25/Hospital-Management-System" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
+          </div>
+          <p class="project-desc">
+            Designed and implemented a SQL-based system to manage patients, treatments, and resource
+            utilization across a hospital network, supporting operational reporting and analytics.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+      <h2 class="section-title">Education & certifications</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-title">Education</div>
+          <div class="edu-line">
+            <strong>Master of Science, Data Analytics Engineering</strong> · Northeastern University · Boston, MA
+          </div>
+          <div class="edu-line">Graduated Aug 2023 · GPA 3.86 / 4.0</div>
+          <br />
+          <div class="edu-line">
+            <strong>Bachelor of Science, Electronics and Telecommunications</strong> · University of Mumbai · India
+          </div>
+          <div class="edu-line">Graduated Jul 2019 · GPA 3.36 / 4.0</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-title">Certifications</div>
+          <ul class="cert-list">
+            <li>Google Cloud Certified Professional Data Engineer</li>
+            <li>Oracle SQL Developer Certified</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Interested in data platform, analytics engineering, or cloud/MLOps roles. Feel free to reach out.
+      </p>
+
+      <div class="contact-card">
+        <div>📧 <strong>Email</strong>: <a href="mailto:shahsanay25@gmail.com">shahsanay25@gmail.com</a></div>
+        <div>📱 <strong>Phone</strong>: 857-318-6077 (US)</div>
+        <div>🔗 <strong>Links</strong>:</div>
+        <ul>
+          <li>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/shahsanay25" target="_blank" rel="noopener">
+              linkedin.com/in/shahsanay25
+            </a>
+          </li>
+          <li>
+            GitHub:
+            <a href="https://github.com/shahsanay25" target="_blank" rel="noopener">
+              github.com/shahsanay25
+            </a>
+          </li>
+        </ul>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:shahsanay25@gmail.com?subject=Opportunity%20for%20Data%20%26%20Analytics%20Engineer">
+            Email me
+          </a>
+          <a class="btn btn-ghost" href="#about">Back to top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> · Built by Sanay Shah · Host on GitHub Pages, Netlify, or your cloud of choice.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
