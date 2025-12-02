@@ -162,7 +162,8 @@
       }
 
       .nav-cta {
-        display: none;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
       }
     }
 
@@ -370,7 +371,13 @@
     .about-name {
       font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .about-cert {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
     }
 
     .about-core-title {
@@ -380,19 +387,41 @@
       margin-bottom: 0.4rem;
     }
 
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      justify-content: center;
+    .about-skill-block {
+      margin-top: 0.2rem;
+      text-align: left;
     }
 
-    .pill {
-      font-size: 0.8rem;
-      padding: 0.18rem 0.6rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #1e3a8a;
+    .about-skill-row {
+      font-size: 0.86rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .about-skill-label {
+      font-weight: 600;
+      color: var(--text-main);
+      margin-right: 0.3rem;
+    }
+
+    .about-skill-text {
+      color: var(--text-muted);
+    }
+
+    .btn-mobile-contact {
+      margin-top: 0.9rem;
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .about-skill-block {
+        font-size: 0.84rem;
+      }
+      .btn-mobile-contact {
+        display: inline-flex;
+      }
     }
 
     .about-right p {
@@ -420,7 +449,7 @@
       margin-bottom: 0.22rem;
     }
 
-    /* How I can help */
+    /* How Can I Help */
 
     .tracks-grid {
       display: grid;
@@ -679,7 +708,7 @@
 <body>
   <header>
     <div class="nav-inner">
-      <div class="logo">SANAY SHAH</div>
+      <div class="logo">PORTFOLIO</div>
       <nav>
         <ul>
           <li><a data-tab="about" class="active">About me</a></li>
@@ -691,7 +720,7 @@
           <li><a data-tab="contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-cta" data-tab="contact">Get in touch</button>
+      <button class="nav-cta" data-tab="contact">Contact</button>
     </div>
   </header>
 
@@ -711,13 +740,13 @@
         </div>
         <div class="hero-actions">
           <button class="btn-primary" id="hero-help-btn">
-            How can I help?
+            How Can I Help?
           </button>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT (single page, always visible) -->
+    <!-- ABOUT -->
     <section id="about" class="about-wrapper">
       <div class="section-inner">
         <h2 class="section-title">About me</h2>
@@ -729,16 +758,42 @@
           <div class="about-left">
             <img src="profile.jpeg" alt="Sanay Shah" class="about-photo" />
             <div class="about-name">Sanay Shah</div>
+            <div class="about-cert">Certified GCP Professional Data Engineer</div>
 
             <div class="about-core-title">Skills</div>
-            <div class="pill-list">
-              <span class="pill">BigQuery and Airflow</span>
-              <span class="pill">SQL and Python</span>
-              <span class="pill">Kafka and Druid streaming</span>
-              <span class="pill">Looker, GA4 and Tableau</span>
-              <span class="pill">Vertex AI and BigQuery ML</span>
-              <span class="pill">Prometheus, Grafana, ELK</span>
+            <div class="about-skill-block">
+              <div class="about-skill-row">
+                <span class="about-skill-label">Cloud services</span>
+                <span class="about-skill-text">
+                  GCP (BigQuery, Airflow, Pub/Sub, Dataflow, GKE), AWS (Redshift, S3)
+                </span>
+              </div>
+              <div class="about-skill-row">
+                <span class="about-skill-label">Data and analytics</span>
+                <span class="about-skill-text">
+                  SQL, Python, dbt style modeling, semantic layers, Looker, GA4, Tableau
+                </span>
+              </div>
+              <div class="about-skill-row">
+                <span class="about-skill-label">Streaming and ML</span>
+                <span class="about-skill-text">
+                  Kafka, Druid, Vertex AI, BigQuery ML, feature pipelines
+                </span>
+              </div>
+              <div class="about-skill-row">
+                <span class="about-skill-label">Monitoring and reliability</span>
+                <span class="about-skill-text">
+                  Prometheus, Grafana, Datadog, ELK, CI/CD and health checks
+                </span>
+              </div>
             </div>
+
+            <button
+              class="btn-primary btn-mobile-contact"
+              onclick="scrollToSection('contact')"
+            >
+              Contact
+            </button>
           </div>
 
           <div class="about-right">
@@ -776,10 +831,10 @@
       </div>
     </section>
 
-    <!-- HOW I CAN HELP -->
+    <!-- HOW CAN I HELP -->
     <section id="help">
       <div class="section-inner">
-        <h2 class="section-title">How I can help</h2>
+        <h2 class="section-title">How Can I Help?</h2>
         <p class="section-subtitle">
           Ways I can contribute as a data engineer and analytics partner.
         </p>
@@ -1252,7 +1307,7 @@
       });
     });
 
-    // Hero button -> How I can help
+    // Hero button -> How Can I Help?
     const heroBtn = document.getElementById("hero-help-btn");
     if (heroBtn) {
       heroBtn.addEventListener("click", () => {
