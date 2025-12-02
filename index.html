@@ -113,15 +113,6 @@
       padding: 0.6rem 1rem;
     }
 
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      white-space: nowrap;
-    }
-
     nav {
       flex: 1;
       overflow-x: auto;
@@ -130,7 +121,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 0.7rem;
       margin: 0;
       padding: 0;
       font-size: 0.86rem;
@@ -201,10 +192,7 @@
       }
 
       nav ul {
-        gap: 0.7rem;
-      }
-
-      .logo {
+        gap: 0.55rem;
         font-size: 0.8rem;
       }
 
@@ -218,9 +206,9 @@
 
     .hero {
       position: relative;
-      min-height: calc(100vh - 56px);
+      min-height: 90vh;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
       overflow: hidden;
     }
@@ -233,8 +221,8 @@
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0.9;
-      transform: scale(1.04);
-      animation: heroZoom 24s ease-in-out infinite alternate;
+      transform: scale(1.08) translateY(0);
+      will-change: transform;
     }
 
     .hero-overlay {
@@ -313,20 +301,44 @@
       box-shadow: 0 18px 40px rgba(37, 99, 235, 0.4);
     }
 
-    /* Mobile hero tweaks */
+    /* Scroll arrow */
+
+    .scroll-arrow {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.75);
+      color: #e5e7eb;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+      animation: arrowBounce 1.6s infinite;
+      backdrop-filter: blur(6px);
+    }
+
+    .scroll-arrow span.chevron {
+      font-size: 0.9rem;
+    }
 
     @media (max-width: 640px) {
       .hero {
+        min-height: 78vh;
         align-items: center;
-        min-height: 80vh;
       }
 
       .hero-bg {
-        opacity: 0.22;
+        opacity: 0.12;
       }
 
       .hero-content {
-        padding: 1.8rem 1.1rem 2.2rem;
+        padding: 1.8rem 1.1rem 2rem;
         margin: 0 1rem;
         background: rgba(255, 255, 255, 0.94);
         border-radius: 18px;
@@ -350,6 +362,12 @@
       .btn-primary {
         font-size: 0.85rem;
         padding: 0.6rem 1.2rem;
+      }
+
+      .scroll-arrow {
+        bottom: 10px;
+        font-size: 0.7rem;
+        padding: 0.3rem 0.75rem;
       }
     }
 
@@ -894,15 +912,6 @@
 
     /* Animations */
 
-    @keyframes heroZoom {
-      from {
-        transform: scale(1.04) translateY(0);
-      }
-      to {
-        transform: scale(1.1) translateY(-6px);
-      }
-    }
-
     @keyframes fadeInUpHero {
       from {
         opacity: 0;
@@ -924,6 +933,15 @@
         transform: translateY(0);
       }
     }
+
+    @keyframes arrowBounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-6px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -931,7 +949,7 @@
 
   <header>
     <div class="nav-inner">
-      <div class="logo">PORTFOLIO</div>
+      <!-- Logo removed as requested -->
       <nav>
         <ul>
           <li><a data-tab="about" class="active">About me</a></li>
@@ -950,7 +968,7 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-bg"></div>
+      <div class="hero-bg" id="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-name">Sanay Shah</div>
@@ -967,6 +985,11 @@
           </button>
         </div>
       </div>
+
+      <button class="scroll-arrow" id="scroll-arrow">
+        <span class="chevron">⌄</span>
+        <span>Scroll to About</span>
+      </button>
     </section>
 
     <!-- ABOUT -->
@@ -1140,483 +1163,4 @@
             <ul class="exp-list">
               <li>
                 Led integration and optimization of more than 60 ETL pipelines across GCP
-                (Airflow, BigQuery, GCS, Cloud SQL), improving runtime by about 18 percent.
-              </li>
-              <li>
-                Cleaned and reorganized GCS storage, freeing roughly 600 TB of data by
-                standardizing Avro and Parquet formats and tightening retention.
-              </li>
-              <li>
-                Improved BigQuery and MySQL query patterns to reduce compute cost and support
-                reliable network and customer analytics.
-              </li>
-              <li>
-                Contributed to GKE blue green deployments and a middle manager less pod setup,
-                helping unlock around 1.6 million dollars in estimated annual savings.
-              </li>
-            </ul>
-
-            <div class="exp-section-title">Real Time Tool</div>
-            <ul class="exp-list">
-              <li>
-                Supported Kafka to Druid to S3 data flows for real time network and customer views,
-                tuning partitions, aggregations and queries for low latency dashboards.
-              </li>
-              <li>
-                Built Kafka parsers and validation checks so streaming data lands in a consistent,
-                analytics ready shape for downstream consumers.
-              </li>
-              <li>
-                Automated health checks and alerts using metrics and logs to cut manual
-                investigation time when data issues appear.
-              </li>
-            </ul>
-
-            <div class="exp-section-title">AIOps and semantic layers</div>
-            <ul class="exp-list">
-              <li>
-                Designed BigQuery semantic layers with curated views and stored procedures that
-                support AIOps and customer experience analytics.
-              </li>
-              <li>
-                Used Airflow to drive curation and quality checks and integrated with tools such as
-                Datadog to monitor freshness, volume and anomalies.
-              </li>
-            </ul>
-          </article>
-
-          <article class="exp-card scroll-card">
-            <div class="exp-header">
-              <div class="exp-title">Data and Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
-              <div class="exp-meta">United States · May 2022 – Jan 2023</div>
-            </div>
-            <p>
-              Contributed to migration, analytics and early NLP pipelines for network and customer support teams.
-            </p>
-
-            <div class="exp-section-title">Migration project</div>
-            <ul class="exp-list">
-              <li>
-                Helped migrate more than 70 Hive and Spark jobs to BigQuery and Airflow flows,
-                refactoring ETL logic in Python and SQL and reducing cost and complexity.
-              </li>
-              <li>
-                Tuned Druid and BigQuery queries and partitions, improving dashboard performance
-                by around 65 percent for operational users.
-              </li>
-            </ul>
-
-            <div class="exp-section-title">Analytics datasets</div>
-            <ul class="exp-list">
-              <li>
-                Used Teradata SQL and PostgreSQL to build joined and cleaned datasets for
-                operations, customer and financial reporting.
-              </li>
-              <li>
-                Built Python ETL and API scripts that delivered data into dashboards with
-                faster processing times.
-              </li>
-            </ul>
-
-            <div class="exp-section-title">NLP ticket classification</div>
-            <ul class="exp-list">
-              <li>
-                Contributed to pipelines that classify support tickets into topics and categories
-                so work can be routed to the right teams.
-              </li>
-              <li>
-                Helped refine monitoring and evaluation so classification results stayed reliable
-                in production.
-              </li>
-            </ul>
-          </article>
-
-          <article class="exp-card scroll-card">
-            <div class="exp-header">
-              <div class="exp-title">Senior Data and Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
-              <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
-            </div>
-            <p>
-              Worked on ETL and data marts for regulatory, risk and portfolio reporting using
-              Informatica and SQL.
-            </p>
-
-            <div class="exp-section-title">Data pipelines</div>
-            <ul class="exp-list">
-              <li>
-                Maintained more than 40 ETL and ELT pipelines in Informatica to bring Capital IQ,
-                FactSet and other market data into IBM DB2 with governance and lineage.
-              </li>
-            </ul>
-
-            <div class="exp-section-title">Modeling and reporting</div>
-            <ul class="exp-list">
-              <li>
-                Designed star and snowflake models with slowly changing dimensions for risk and
-                portfolio analytics.
-              </li>
-              <li>
-                Supported SQL and Tableau based reporting for finance and risk teams.
-              </li>
-            </ul>
-
-            <div class="exp-section-title">Release and collaboration</div>
-            <ul class="exp-list">
-              <li>
-                Used Git and Jenkins for ETL releases, which reduced deployment issues and kept
-                changes controlled.
-              </li>
-              <li>
-                Worked with risk, analytics and technology teams to align requirements, KPIs and
-                data flows under an Agile model.
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="page-section">
-      <div class="section-inner">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">
-          The tools, platforms and concepts I use most often.
-        </p>
-
-        <div class="skills-grid">
-          <div class="skill-card scroll-card">
-            <div class="skill-title">Core strengths</div>
-            <div class="skill-body">
-              <span>ETL and ELT architecture</span>
-              <span>Semantic and KPI modeling</span>
-              <span>dbt style transformations</span>
-              <span>SQL performance tuning</span>
-              <span>Streaming telemetry pipelines</span>
-              <span>Data quality and observability</span>
-            </div>
-          </div>
-
-          <div class="skill-card scroll-card">
-            <div class="skill-title">Cloud and databases</div>
-            <div class="skill-body">
-              <span>GCP: BigQuery, GCS, Pub/Sub, Dataflow, GKE, Vertex AI, Data Catalog, Dataproc</span>
-              <span>AWS: Redshift, S3, Glue</span>
-              <span>MySQL, PostgreSQL, Teradata, IBM DB2</span>
-            </div>
-          </div>
-
-          <div class="skill-card scroll-card">
-            <div class="skill-title">Streaming and data platforms</div>
-            <div class="skill-body">
-              <span>Apache Kafka</span>
-              <span>Apache Druid</span>
-              <span>Apache Spark and PySpark</span>
-              <span>Hadoop</span>
-              <span>Snowflake</span>
-              <span>NoSQL: Cassandra</span>
-            </div>
-          </div>
-
-          <div class="skill-card scroll-card">
-            <div class="skill-title">Analytics and BI</div>
-            <div class="skill-body">
-              <span>Looker and LookML</span>
-              <span>Google Analytics 4 (funnels, retention, attribution)</span>
-              <span>Tableau</span>
-              <span>Power BI</span>
-              <span>Experimentation datasets</span>
-            </div>
-          </div>
-
-          <div class="skill-card scroll-card">
-            <div class="skill-title">MLOps, DevOps and tooling</div>
-            <div class="skill-body">
-              <span>Python, SQL, Shell</span>
-              <span>Airflow</span>
-              <span>Docker</span>
-              <span>Kubernetes and GKE</span>
-              <span>Git, GitLab CI/CD, Jenkins, ArgoCD</span>
-              <span>Terraform, Ansible</span>
-            </div>
-          </div>
-
-          <div class="skill-card scroll-card">
-            <div class="skill-title">AI, automation and security</div>
-            <div class="skill-body">
-              <span>NLP ticket classification and routing</span>
-              <span>Anomaly detection on streaming telemetry</span>
-              <span>ML feature pipelines with Vertex AI and BigQuery ML</span>
-              <span>Prometheus, Grafana, Datadog and ELK monitoring</span>
-              <span>Slack and email alerts for pipeline health</span>
-              <span>IAM, LDAP based access and encrypted keys</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="page-section">
-      <div class="section-inner">
-        <h2 class="section-title">Certifications</h2>
-        <p class="section-subtitle">
-          Credentials that back up my day to day work with cloud and SQL.
-        </p>
-
-        <div class="cert-badges">
-          <a
-            class="cert-badge scroll-card"
-            href="https://www.credly.com/badges/d9c8e18b-86c6-4c11-9ffb-cd26588d881e"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="cert-label">Google Cloud Certified Professional Data Engineer</span>
-            <span class="cert-provider">Issued by Google Cloud via Credly</span>
-          </a>
-
-          <a
-            class="cert-badge scroll-card"
-            href="https://www.credly.com/badges/e93ebf1c-a234-4e5a-910d-f068c88455f1"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="cert-label">Google Cloud Certified Associate (GCP)</span>
-            <span class="cert-provider">Issued by Google Cloud via Credly</span>
-          </a>
-
-          <a
-            class="cert-badge scroll-card"
-            href="https://www.credly.com/badges/8339498f-55cb-4592-90de-34556c39639b"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="cert-label">Oracle SQL Developer Certified</span>
-            <span class="cert-provider">Issued by Oracle via Credly</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="page-section">
-      <div class="section-inner">
-        <h2 class="section-title">Education</h2>
-
-        <div class="edu-grid">
-          <div class="edu-card scroll-card">
-            <div class="edu-title">Degrees</div>
-            <p>
-              <strong>Master of Science, Data Analytics Engineering</strong><br />
-              Northeastern University · Boston, MA · United States
-            </p>
-            <p>
-              <strong>Bachelor of Science, Electronics and Telecommunications</strong><br />
-              University of Mumbai · Mumbai, MH · India
-            </p>
-          </div>
-
-          <div class="edu-card scroll-card">
-            <div class="edu-title">Focus areas</div>
-            <p>
-              Coursework and projects across data mining, database design, cloud data
-              warehousing, machine learning, statistical modeling and large scale data
-              processing.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="page-section">
-      <div class="section-inner">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">
-          Open to data engineering, analytics engineering and cloud or MLOps roles. Happy to connect
-          about data platforms and analytics problems in general too.
-        </p>
-
-        <div class="contact-card scroll-card">
-          <div>📧 <strong>Email</strong>: <a href="mailto:shahsanay25@gmail.com">shahsanay25@gmail.com</a></div>
-          <div>📱 <strong>Phone</strong>: 857-318-6077 (US)</div>
-          <div>🔗 <strong>Links</strong>:</div>
-          <ul>
-            <li>
-              LinkedIn:
-              <a href="https://www.linkedin.com/in/shahsanay25" target="_blank" rel="noopener">
-                linkedin.com/in/shahsanay25
-              </a>
-            </li>
-            <li>
-              GitHub:
-              <a href="https://github.com/shahsanay25" target="_blank" rel="noopener">
-                github.com/shahsanay25
-              </a>
-            </li>
-          </ul>
-
-          <div class="contact-actions">
-            <a
-              class="btn-primary"
-              href="mailto:shahsanay25@gmail.com?subject=Opportunity%20for%20Data%20and%20Analytics%20Engineer"
-            >
-              Email me
-            </a>
-            <button class="btn-outline" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-              Back to top
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> · Built by Sanay Shah · Host on GitHub Pages, Netlify, or your cloud of choice.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Rotating role text with small fade
-    const roles = ["Data Engineer", "Data Analytics Engineer", "Data Scientist"];
-    let roleIndex = 0;
-    const roleSpan = document.getElementById("role-rotate");
-
-    function updateRole() {
-      if (!roleSpan) return;
-      roleIndex = (roleIndex + 1) % roles.length;
-      roleSpan.classList.remove("fade-role");
-      // trigger reflow so animation restarts
-      void roleSpan.offsetWidth;
-      roleSpan.textContent = roles[roleIndex];
-      roleSpan.classList.add("fade-role");
-    }
-
-    if (roleSpan) {
-      setInterval(updateRole, 1400);
-    }
-
-    const headerEl = document.querySelector("header");
-    let headerHeight = headerEl ? headerEl.offsetHeight : 0;
-
-    window.addEventListener("resize", () => {
-      headerHeight = headerEl ? headerEl.offsetHeight : 0;
-    });
-
-    function scrollToSection(id) {
-      const target = document.getElementById(id);
-      if (!target) return;
-
-      const rect = target.getBoundingClientRect();
-      const offsetTop = rect.top + window.scrollY - headerHeight - 8;
-
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
-    }
-
-    const navLinks = document.querySelectorAll("nav a[data-tab]");
-    const tabButtons = document.querySelectorAll("[data-tab]");
-
-    function setActiveNav(name) {
-      navLinks.forEach((lnk) => {
-        lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
-      });
-    }
-
-    tabButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const tabName = btn.getAttribute("data-tab");
-        if (!tabName) return;
-        scrollToSection(tabName);
-      });
-    });
-
-    // Hero button -> How Can I Help?
-    const heroBtn = document.getElementById("hero-help-btn");
-    if (heroBtn) {
-      heroBtn.addEventListener("click", () => {
-        scrollToSection("help");
-      });
-    }
-
-    // Scroll-based reveal animations (sections + cards)
-    const sections = document.querySelectorAll("section.page-section");
-    const cards = document.querySelectorAll(
-      ".about-card.scroll-card, .track-card.scroll-card, .exp-card.scroll-card, .skill-card.scroll-card, .cert-badge.scroll-card, .edu-card.scroll-card, .contact-card.scroll-card"
-    );
-
-    // Stagger delays for cards
-    cards.forEach((card, index) => {
-      const delay = (index % 3) * 0.09;
-      card.style.transitionDelay = delay + "s";
-    });
-
-    if ("IntersectionObserver" in window) {
-      const sectionObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const id = entry.target.id;
-            if (entry.isIntersecting) {
-              entry.target.classList.add("section-in-view");
-              if (id) {
-                setActiveNav(id);
-              }
-            }
-          });
-        },
-        {
-          threshold: 0.45,
-        }
-      );
-
-      sections.forEach((sec) => sectionObserver.observe(sec));
-
-      const cardObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("in-view");
-              cardObserver.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.2,
-          rootMargin: "0px 0px -40px 0px",
-        }
-      );
-
-      cards.forEach((card) => cardObserver.observe(card));
-    } else {
-      // Fallback: show everything
-      sections.forEach((sec) => sec.classList.add("section-in-view"));
-      cards.forEach((card) => card.classList.add("in-view"));
-    }
-
-    // Header shadow + subtle lift on scroll
-    window.addEventListener("scroll", () => {
-      if (!headerEl) return;
-      if (window.scrollY > 10) {
-        headerEl.classList.add("header-scrolled");
-      } else {
-        headerEl.classList.remove("header-scrolled");
-      }
-    });
-
-    // Scroll progress bar
-    const progressBar = document.querySelector(".scroll-progress");
-    window.addEventListener("scroll", () => {
-      if (!progressBar) return;
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + "%";
-    });
-  </script>
-</body>
-</html>
+                (Airflow, BigQuery, GCS, Cloud SQL), improving runtime by about 1
