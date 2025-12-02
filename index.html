@@ -82,6 +82,7 @@
       backdrop-filter: blur(16px);
       background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+      transition: box-shadow 0.25s ease, background 0.25s ease;
     }
 
     .nav-inner {
@@ -89,9 +90,18 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center; /* centered since we removed logo + button */
+      justify-content: space-between;
       gap: 0.75rem;
-      padding: 0.6rem 1.0rem;
+      padding: 0.6rem 1rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
     }
 
     nav {
@@ -107,12 +117,30 @@
       padding: 0;
       font-size: 0.86rem;
       white-space: nowrap;
-      justify-content: center;
     }
 
     nav a {
       color: var(--text-muted);
       cursor: pointer;
+      position: relative;
+      padding-bottom: 0.1rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.05rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+      border-radius: 999px;
+      transition: width 0.22s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     nav a.active {
@@ -120,7 +148,30 @@
       font-weight: 500;
     }
 
-    /* nav-cta removed so Contact is not duplicated */
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: #eff6ff;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: transform 0.18s ease, box-shadow 0.18s ease,
+        border-color 0.18s ease, background-color 0.18s ease;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+      background-color: #dbeafe;
+    }
 
     main {
       margin-top: 56px; /* header height */
@@ -133,6 +184,15 @@
 
       nav ul {
         gap: 0.7rem;
+      }
+
+      .logo {
+        font-size: 0.8rem;
+      }
+
+      .nav-cta {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
       }
     }
 
@@ -155,6 +215,8 @@
       background-position: center;
       background-repeat: no-repeat;
       opacity: 0.9;
+      transform: scale(1.04);
+      animation: heroZoom 22s ease-in-out infinite alternate;
     }
 
     .hero-overlay {
@@ -168,6 +230,7 @@
       text-align: center;
       padding: 2.5rem 1.5rem 3.5rem;
       max-width: 640px;
+      animation: fadeInUpHero 0.9s ease-out both 0.1s;
     }
 
     .hero-name {
@@ -212,55 +275,35 @@
       background: linear-gradient(135deg, #3b82f6, #2563eb);
       color: #ffffff;
       font-weight: 600;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        filter 0.2s ease;
     }
 
     .btn-primary:hover {
       filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.4);
     }
 
-    /* Tablet + mobile hero tweaks to avoid overlap */
+    /* Mobile hero tweaks */
 
-    @media (max-width: 900px) {
+    @media (max-width: 640px) {
       .hero {
         align-items: center;
         min-height: 80vh;
       }
 
       .hero-bg {
-        opacity: 0.25; /* lighter on tablet & mobile */
-        background-position: center top;
+        opacity: 0.22;
       }
 
       .hero-content {
-        padding: 2rem 1.4rem 2.3rem;
-        margin: 0 1.4rem;
+        padding: 1.8rem 1.1rem 2.2rem;
+        margin: 0 1rem;
         background: rgba(255, 255, 255, 0.94);
         border-radius: 18px;
         box-shadow: var(--shadow-soft);
-      }
-
-      .hero-name {
-        font-size: 2.4rem;
-      }
-
-      .hero-role-line {
-        font-size: 1.05rem;
-        margin-bottom: 0.7rem;
-      }
-
-      .hero-sub {
-        font-size: 0.9rem;
-        margin-bottom: 1.1rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        min-height: 72vh; /* slightly smaller so About is easier to reach */
-      }
-
-      .hero-bg {
-        opacity: 0.18; /* even lighter on small phones */
       }
 
       .hero-name {
@@ -269,10 +312,12 @@
 
       .hero-role-line {
         font-size: 1rem;
+        margin-bottom: 0.7rem;
       }
 
       .hero-sub {
         font-size: 0.85rem;
+        margin-bottom: 1.1rem;
       }
 
       .btn-primary {
@@ -284,7 +329,7 @@
     /* Generic section */
 
     section {
-      padding: 3.2rem 1.0rem;
+      padding: 3.2rem 1rem;
     }
 
     @media (max-width: 640px) {
@@ -325,6 +370,14 @@
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
       gap: 1.8rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.16);
+      border-color: #cbd5f5;
     }
 
     @media (max-width: 880px) {
@@ -358,6 +411,12 @@
       border: 2px solid var(--accent-soft);
       box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
       margin-bottom: 0.8rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .about-photo:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.3);
     }
 
     .about-name {
@@ -468,6 +527,15 @@
       padding: 1rem 1.1rem 0.9rem;
       font-size: 0.9rem;
       color: var(--text-muted);
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease, background-color 0.22s ease;
+    }
+
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: #c7d2fe;
+      background-color: #f9fafb;
     }
 
     .track-title {
@@ -497,6 +565,15 @@
       background: #2563eb;
       border: 1px solid #1d4ed8;
       color: #ffffff;
+      transition: transform 0.18s ease, box-shadow 0.18s ease,
+        background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-1px);
+      background-color: #1d4ed8;
+      border-color: #1e40af;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.4);
     }
 
     .track-footer {
@@ -520,6 +597,14 @@
       padding: 1.2rem 1.4rem 1rem;
       font-size: 0.93rem;
       color: var(--text-muted);
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: #c7d2fe;
     }
 
     .exp-header {
@@ -578,6 +663,14 @@
       padding: 1rem 1.1rem 0.9rem;
       font-size: 0.9rem;
       color: var(--text-muted);
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: #c7d2fe;
     }
 
     .skill-title {
@@ -614,6 +707,15 @@
       color: #1d4ed8;
       font-size: 0.86rem;
       min-width: 240px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease, background-color 0.22s ease;
+    }
+
+    .cert-badge:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: #bfdbfe;
+      background-color: #e0edff;
     }
 
     .cert-label {
@@ -646,6 +748,14 @@
       padding: 1rem 1.1rem 0.9rem;
       font-size: 0.9rem;
       color: var(--text-muted);
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: #c7d2fe;
     }
 
     .edu-title {
@@ -664,6 +774,14 @@
       padding: 1.1rem 1.2rem 1rem;
       font-size: 0.92rem;
       color: var(--text-muted);
+      transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: #c7d2fe;
     }
 
     .contact-actions {
@@ -681,11 +799,16 @@
       background: #ffffff;
       color: var(--text-muted);
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
     }
 
     .btn-outline:hover {
       border-color: var(--accent);
       color: var(--accent);
+      background-color: #eff6ff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
     }
 
     footer {
@@ -695,12 +818,52 @@
       font-size: 0.78rem;
       color: var(--text-muted);
     }
+
+    /* Animation helpers */
+
+    @keyframes heroZoom {
+      from {
+        transform: scale(1.04) translateY(0);
+      }
+      to {
+        transform: scale(1.1) translateY(-6px);
+      }
+    }
+
+    @keyframes fadeInUpHero {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-fade-in-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Subtle header elevation on scroll */
+
+    .header-scrolled {
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      background: rgba(255, 255, 255, 0.97);
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="nav-inner">
-      <!-- Logo removed; only one Contact in header now (as tab) -->
+      <div class="logo">PORTFOLIO</div>
       <nav>
         <ul>
           <li><a data-tab="about" class="active">About me</a></li>
@@ -712,6 +875,7 @@
           <li><a data-tab="contact">Contact</a></li>
         </ul>
       </nav>
+      <button class="nav-cta" data-tab="contact">Contact</button>
     </div>
   </header>
 
@@ -1306,6 +1470,44 @@
         scrollToSection("help");
       });
     }
+
+    // Scroll-based reveal animations
+    const animatedEls = document.querySelectorAll(
+      ".about-card, .track-card, .exp-card, .skill-card, .cert-badge, .edu-card, .contact-card"
+    );
+    animatedEls.forEach((el) => el.classList.add("animate-fade-in-up"));
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+          rootMargin: "0px 0px -40px 0px",
+        }
+      );
+
+      animatedEls.forEach((el) => observer.observe(el));
+    } else {
+      // Fallback: show everything if IntersectionObserver not supported
+      animatedEls.forEach((el) => el.classList.add("in-view"));
+    }
+
+    // Header shadow on scroll
+    window.addEventListener("scroll", () => {
+      if (!headerEl) return;
+      if (window.scrollY > 10) {
+        headerEl.classList.add("header-scrolled");
+      } else {
+        headerEl.classList.remove("header-scrolled");
+      }
+    });
   </script>
 </body>
 </html>
