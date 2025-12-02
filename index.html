@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sanay Shah | Data & Analytics Engineer</title>
+  <title>How Can I Help? | Sanay Shah</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
@@ -58,7 +58,7 @@
       width: 100%;
       z-index: 40;
       backdrop-filter: blur(16px);
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.9);
       border-bottom: 1px solid rgba(229, 231, 235, 0.9);
     }
 
@@ -90,10 +90,12 @@
 
     nav a {
       color: var(--text-muted);
+      cursor: pointer;
     }
 
-    nav a:hover {
+    nav a.active {
       color: var(--accent);
+      font-weight: 500;
     }
 
     .nav-cta {
@@ -114,13 +116,13 @@
       margin-top: 56px; /* header height */
     }
 
-    /* HERO SECTION */
+    /* HERO */
 
     .hero {
       position: relative;
       min-height: calc(100vh - 56px);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       overflow: hidden;
     }
@@ -128,7 +130,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url("hero-bg.jpg"); /* put your illustration here */
+      background-image: url("hero-bg.png"); /* your illustration */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -138,38 +140,65 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.3), transparent);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.35), transparent);
     }
 
     .hero-content {
       position: relative;
       text-align: center;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem 3.5rem;
       max-width: 640px;
     }
 
     .hero-name {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       font-weight: 700;
-      letter-spacing: -0.04em;
-      margin-bottom: 0.4rem;
+      letter-spacing: -0.05em;
+      margin-bottom: 0.3rem;
     }
 
-    .hero-role {
-      font-size: 1.2rem;
+    .hero-role-line {
+      font-size: 1.3rem;
       font-weight: 500;
       color: var(--accent);
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-role-line span {
+      font-weight: 700;
     }
 
     .hero-sub {
       font-size: 0.95rem;
       color: var(--text-muted);
       max-width: 30rem;
-      margin: 0 auto;
+      margin: 0 auto 1.4rem;
     }
 
-    /* GENERIC SECTION LAYOUT */
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    /* Generic section / tabs */
 
     section {
       padding: 3.2rem 1.25rem;
@@ -192,7 +221,15 @@
       margin-bottom: 1.6rem;
     }
 
-    /* ABOUT CARD (A4 STYLE) */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* About card (A4 style) */
 
     .about-wrapper {
       background: var(--bg-soft);
@@ -245,13 +282,7 @@
     .about-name {
       font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 0.1rem;
-    }
-
-    .about-location {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
     }
 
     .about-core-title {
@@ -261,30 +292,11 @@
       margin-bottom: 0.4rem;
     }
 
-    .about-core-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .about-core-list li {
-      margin-bottom: 0.3rem;
-    }
-
-    .about-right p {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      margin-top: 0;
-      margin-bottom: 0.85rem;
-    }
-
-    .about-pills {
+    .pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.4rem;
+      justify-content: center;
     }
 
     .pill {
@@ -295,11 +307,31 @@
       color: #1e3a8a;
     }
 
-    /* HOW I CAN HELP */
-
-    .how-help {
-      margin-top: 2.3rem;
+    .about-right p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-top: 0;
+      margin-bottom: 0.85rem;
     }
+
+    .about-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0.2rem 0 0.25rem;
+    }
+
+    .about-list {
+      margin: 0.1rem 0 0.5rem;
+      padding-left: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about-list li {
+      margin-bottom: 0.22rem;
+    }
+
+    /* How I can help (tab content) */
 
     .tracks-grid {
       display: grid;
@@ -363,11 +395,7 @@
       margin-top: 0.4rem;
     }
 
-    /* EXPERIENCE */
-
-    .experience-section {
-      background: #ffffff;
-    }
+    /* Experience */
 
     .experience-grid {
       display: flex;
@@ -419,7 +447,7 @@
       margin-bottom: 0.22rem;
     }
 
-    /* PROJECTS */
+    /* Projects */
 
     .projects-section {
       background: var(--bg-soft);
@@ -459,11 +487,7 @@
       margin-bottom: 0.35rem;
     }
 
-    /* SKILLS */
-
-    .skills-section {
-      background: #ffffff;
-    }
+    /* Skills */
 
     .skills-grid {
       display: grid;
@@ -499,27 +523,39 @@
       margin-bottom: 0.16rem;
     }
 
-    .resume-badges {
+    /* Certifications */
+
+    .cert-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.9rem;
+      gap: 0.8rem;
     }
 
-    .resume-badge {
-      font-size: 0.8rem;
-      border-radius: 999px;
-      padding: 0.25rem 0.85rem;
+    .cert-badge {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.2rem;
+      padding: 0.7rem 1rem;
+      border-radius: 14px;
       border: 1px solid var(--accent-soft);
       background: #eff6ff;
       color: #1d4ed8;
+      font-size: 0.86rem;
+      min-width: 240px;
     }
 
-    /* EDUCATION */
-
-    .education-section {
-      background: var(--bg-soft);
+    .cert-label {
+      font-weight: 600;
     }
+
+    .cert-provider {
+      font-size: 0.8rem;
+      color: #1e40af;
+    }
+
+    /* Education */
 
     .edu-grid {
       display: grid;
@@ -549,16 +585,7 @@
       color: var(--text-main);
     }
 
-    .cert-list {
-      padding-left: 1rem;
-      margin: 0.4rem 0 0;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      background: #ffffff;
-    }
+    /* Contact */
 
     .contact-card {
       background: #ffffff;
@@ -574,24 +601,6 @@
       flex-wrap: wrap;
       gap: 0.7rem;
       margin-top: 0.8rem;
-    }
-
-    .btn-primary {
-      border-radius: 999px;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.88rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
     }
 
     .btn-outline {
@@ -624,160 +633,166 @@
       <div class="logo">SANAY SHAH</div>
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a data-tab="about" class="active">About me</a></li>
+          <li><a data-tab="help">How I can help</a></li>
+          <li><a data-tab="experience">Experience</a></li>
+          <li><a data-tab="skills">Skills</a></li>
+          <li><a data-tab="certifications">Certifications</a></li>
+          <li><a data-tab="education">Education</a></li>
+          <li><a data-tab="contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        Get in touch
-      </button>
+      <button class="nav-cta" data-tab="contact">Get in touch</button>
     </div>
   </header>
 
   <main>
-    <!-- HERO: only illustration + name + rotating roles -->
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-name">Sanay Shah</div>
-        <div class="hero-role">
-          <span id="role-rotate">Data Engineer</span>
+        <div class="hero-role-line">
+          I am a <span id="role-rotate">Data Engineer</span>
         </div>
         <div class="hero-sub">
-          I build practical data systems that turn raw events into trustworthy insights
-          for telecom, customer and financial use cases.
+          I build cloud data platforms and analytics pipelines that turn raw events into reliable,
+          fast and usable insights.
+        </div>
+        <div class="hero-actions">
+          <button class="btn-primary" id="hero-help-btn">
+            How can I help?
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION (A4 style card) -->
-    <section id="about" class="about-wrapper">
+    <!-- ABOUT TAB -->
+    <section id="about" class="tab-content about-wrapper active">
       <div class="section-inner">
-        <h2 class="section-title">About</h2>
+        <h2 class="section-title">About me</h2>
         <p class="section-subtitle">
-          A data and analytics engineer working at the intersection of cloud data platforms, analytics and MLOps.
+          A data and analytics engineer focused on practical systems that support decision making.
         </p>
 
         <div class="about-card">
           <div class="about-left">
-            <!-- Save your photo as profile.jpeg next to this file -->
             <img src="profile.jpeg" alt="Sanay Shah" class="about-photo" />
             <div class="about-name">Sanay Shah</div>
-            <div class="about-location">Dallas, TX · United States · Open to relocate</div>
 
-            <div class="about-core-title">Core strengths</div>
-            <ul class="about-core-list">
-              <li>Designing ETL and ELT pipelines in BigQuery and Airflow</li>
-              <li>Streaming with Kafka and Druid for real time views</li>
-              <li>Customer and financial analytics in Looker and Tableau</li>
-              <li>dbt style modeling and semantic layers</li>
-              <li>MLOps, observability and data quality checks</li>
-            </ul>
-          </div>
-
-          <div class="about-right">
-            <p>
-              I am a GCP certified data and analytics engineer with more than five years of experience
-              across telecom and financial domains. I work with BigQuery, Airflow, Kafka, Pub/Sub,
-              Dataflow and Dataproc to build batch and streaming pipelines that stay reliable as
-              data grows.
-            </p>
-            <p>
-              I use SQL and Python for modeling, optimization and automation so pipelines are
-              efficient and predictable at scale. With Docker, Kubernetes, CI/CD and monitoring
-              tools such as Grafana, Datadog and ELK, I support stable deployments and clear visibility
-              into data quality and system health.
-            </p>
-            <p>
-              I enjoy projects where clear semantics and reliable data unlock better decisions:
-              customer journeys, financial reporting, network reliability and ML ready datasets for
-              churn, anomaly detection and ticket classification.
-            </p>
-
-            <div class="about-pills">
+            <div class="about-core-title">Skills</div>
+            <div class="pill-list">
               <span class="pill">BigQuery and Airflow</span>
+              <span class="pill">SQL and Python</span>
               <span class="pill">Kafka and Druid streaming</span>
               <span class="pill">Looker, GA4 and Tableau</span>
               <span class="pill">Vertex AI and BigQuery ML</span>
               <span class="pill">Prometheus, Grafana, ELK</span>
             </div>
           </div>
-        </div>
 
-        <!-- HOW I CAN HELP SECTION -->
-        <div class="how-help">
-          <h2 class="section-title">How I can help</h2>
-          <p class="section-subtitle">
-            A quick view of what I bring in as a data engineer and analytics partner.
-          </p>
+          <div class="about-right">
+            <p>
+              I am a GCP certified data and analytics engineer with more than five years of
+              experience across telecom and financial domains. I work with BigQuery, Airflow,
+              Kafka, Pub/Sub, Dataflow and Dataproc to build batch and streaming pipelines that
+              stay reliable as data volume grows.
+            </p>
+            <p>
+              I use SQL and Python for modeling, optimization and automation so pipelines stay
+              predictable and easy to maintain. With Docker, Kubernetes, CI/CD and monitoring
+              tools such as Grafana, Datadog and ELK, I support stable deployments and clear
+              visibility into data quality and system health.
+            </p>
 
-          <div class="tracks-grid">
-            <!-- Card 1: Data Engineering -->
-            <div class="track-card">
-              <div class="track-title">Design and scale data platforms</div>
-              <div class="track-tagline">BigQuery · Airflow · Pub/Sub · Dataflow · Dataproc</div>
-              <div class="track-tags">
-                <span class="tag">ETL and ELT</span>
-                <span class="tag">Petabyte scale</span>
-                <span class="tag">Semantic layers</span>
-                <span class="tag">dbt style modeling</span>
-              </div>
-              <p class="track-footer">
-                Design and run cloud data platforms that handle large volume batch and streaming
-                workloads. Build BigQuery models and Airflow pipelines, migrate Hive and Spark jobs
-                to GCP and tune queries and storage so teams get fresh and fast data instead of
-                slow reports.
-              </p>
-            </div>
+            <div class="about-subtitle">Expertise in</div>
+            <ul class="about-list">
+              <li>Designing batch and streaming data platforms on GCP and AWS.</li>
+              <li>Customer, network and financial analytics in Looker, GA4 and Tableau.</li>
+              <li>dbt style modeling, semantic layers and governed metric definitions.</li>
+              <li>Observability, anomaly detection and data quality validation at scale.</li>
+            </ul>
 
-            <!-- Card 2: Data analytics and ML-ready data -->
-            <div class="track-card">
-              <div class="track-title">Data analytics and ML ready data</div>
-              <div class="track-tagline">Looker · GA4 · Tableau · Feature datasets</div>
-              <div class="track-tags">
-                <span class="tag">Customer insights</span>
-                <span class="tag">Financial reporting</span>
-                <span class="tag">Performance insights</span>
-                <span class="tag">Funnels and retention</span>
-                <span class="tag">Attribution</span>
-              </div>
-              <p class="track-footer">
-                Turn GA4 events, telemetry and business tables into analytics ready datasets,
-                funnels and KPIs. Support dashboards in Looker, Tableau and Power BI and provide
-                clean feature tables for ML use cases such as churn, anomaly detection and ticket
-                classification.
-              </p>
-            </div>
-
-            <!-- Card 3: Data reliability, governance, security and quality -->
-            <div class="track-card">
-              <div class="track-title">Improve data reliability, governance, security and quality</div>
-              <div class="track-tagline">Docker · GKE · CI/CD · Grafana · ELK</div>
-              <div class="track-tags">
-                <span class="tag">Git based CI/CD</span>
-                <span class="tag">Data quality checks</span>
-                <span class="tag">IAM and LDAP</span>
-                <span class="tag">Encrypted keys</span>
-              </div>
-              <p class="track-footer">
-                Containerize workloads with Docker and Kubernetes and use GitLab or Jenkins for
-                CI/CD. Add health checks, schema validation, anomaly detection and alerting through
-                Grafana, Datadog and ELK with Slack and email notifications. Enforce IAM and LDAP
-                based access and encrypted keys to keep data and systems secure.
-              </p>
-            </div>
+            <div class="about-subtitle">Key deliverables</div>
+            <ul class="about-list">
+              <li>Integrated more than 60 ETL pipelines on GCP, improving runtime by about 18 percent.</li>
+              <li>Freed roughly 600 TB of unused GCS data through storage cleanup and optimization.</li>
+              <li>Contributed to middle manager less Kubernetes pod design, unlocking around 1.6 million dollars in estimated annual savings.</li>
+              <li>Migrated over 70 Hive and Spark jobs to BigQuery and Airflow, cutting infrastructure cost by about 1 million dollars annually.</li>
+              <li>Tuned Druid and BigQuery workloads to improve dashboard performance by roughly 65 percent for operational and business users.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="experience-section">
+    <!-- HOW I CAN HELP TAB -->
+    <section id="help" class="tab-content">
+      <div class="section-inner">
+        <h2 class="section-title">How I can help</h2>
+        <p class="section-subtitle">
+          Ways I can contribute as a data engineer and analytics partner.
+        </p>
+
+        <div class="tracks-grid">
+          <div class="track-card">
+            <div class="track-title">Design and scale data platforms</div>
+            <div class="track-tagline">BigQuery · Airflow · Pub/Sub · Dataflow · Dataproc</div>
+            <div class="track-tags">
+              <span class="tag">ETL and ELT</span>
+              <span class="tag">Petabyte scale</span>
+              <span class="tag">Semantic layers</span>
+              <span class="tag">dbt style modeling</span>
+            </div>
+            <p class="track-footer">
+              Design and run cloud data platforms that handle large volume batch and streaming
+              workloads. Build BigQuery models and Airflow pipelines, migrate Hive and Spark jobs
+              to GCP and tune queries and storage so teams get fresh and fast data instead of
+              slow reports.
+            </p>
+          </div>
+
+          <div class="track-card">
+            <div class="track-title">Data analytics and ML ready data</div>
+            <div class="track-tagline">Looker · GA4 · Tableau · Feature datasets</div>
+            <div class="track-tags">
+              <span class="tag">Customer insights</span>
+              <span class="tag">Financial reporting</span>
+              <span class="tag">Performance insights</span>
+              <span class="tag">Funnels and retention</span>
+              <span class="tag">Attribution</span>
+            </div>
+            <p class="track-footer">
+              Turn GA4 events, telemetry and business tables into analytics ready datasets,
+              funnels and KPIs. Support dashboards in Looker, Tableau and Power BI and provide
+              clean feature tables for ML use cases such as churn, anomaly detection and ticket
+              classification.
+            </p>
+          </div>
+
+          <div class="track-card">
+            <div class="track-title">Reliability, governance, security and quality</div>
+            <div class="track-tagline">Docker · GKE · CI/CD · Grafana · ELK</div>
+            <div class="track-tags">
+              <span class="tag">Git based CI/CD</span>
+              <span class="tag">Data quality checks</span>
+              <span class="tag">IAM and LDAP</span>
+              <span class="tag">Encrypted keys</span>
+            </div>
+            <p class="track-footer">
+              Containerize workloads with Docker and Kubernetes and use GitLab or Jenkins for
+              CI/CD. Add health checks, schema validation, anomaly detection and alerting through
+              Grafana, Datadog and ELK with Slack and email notifications. Enforce IAM and LDAP
+              based access and encrypted keys to keep data and systems secure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE TAB -->
+    <section id="experience" class="tab-content">
       <div class="section-inner">
         <h2 class="section-title">Experience</h2>
         <p class="section-subtitle">
@@ -785,7 +800,6 @@
         </p>
 
         <div class="experience-grid">
-          <!-- Prodapt full-time -->
           <article class="exp-card">
             <div class="exp-header">
               <div class="exp-title">Data and Analytics Engineer II · Prodapt (Client: Verizon)</div>
@@ -845,7 +859,6 @@
             </ul>
           </article>
 
-          <!-- Prodapt internship -->
           <article class="exp-card">
             <div class="exp-header">
               <div class="exp-title">Data and Analytics Engineer Intern · Prodapt (Client: Verizon)</div>
@@ -892,7 +905,6 @@
             </ul>
           </article>
 
-          <!-- Capgemini -->
           <article class="exp-card">
             <div class="exp-header">
               <div class="exp-title">Senior Data and Analytics Engineer · Capgemini (Client: Morgan Stanley)</div>
@@ -938,102 +950,8 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="projects-section">
-      <div class="section-inner">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">
-          A few examples of analytics and ML work I have done or explored.
-        </p>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-title">Website journey analytics and GA4 funnels</div>
-            <div class="project-meta">
-              GA4 · BigQuery · Looker · Customer analytics
-            </div>
-            <p>
-              Modeled GA4 event streams for website journeys into acquisition to retention
-              funnels and path views, helping product and marketing teams see drop offs and
-              conversion impact in Looker.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-title">NYC Taxi Insights</div>
-            <div class="project-meta">
-              Python · Data analysis ·
-              <a href="https://github.com/shahsanay25/NYC-Taxi-Insights" target="_blank" rel="noopener">
-                GitHub
-              </a>
-            </div>
-            <p>
-              Exploratory analysis of NYC taxi trips to understand demand patterns, fares and
-              usage across time and regions.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-title">Credit Risk Assessment Model</div>
-            <div class="project-meta">
-              Jupyter Notebook · Machine learning ·
-              <a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">
-                GitHub
-              </a>
-            </div>
-            <p>
-              Built and evaluated models for credit risk prediction using customer behavior and
-              payment history data.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-title">Bank Term Deposit Subscription Classifier</div>
-            <div class="project-meta">
-              Jupyter Notebook · Classification ·
-              <a href="https://github.com/shahsanay25/Bank-Term-Deposit-Subscription-Classifier" target="_blank" rel="noopener">
-                GitHub
-              </a>
-            </div>
-            <p>
-              Classification model to estimate which customers are likely to subscribe to a term
-              deposit using demographic and campaign data.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-title">Web Traffic on E-commerce Platform</div>
-            <div class="project-meta">
-              Analytics ·
-              <a href="https://github.com/shahsanay25/Web-Traffic-on-E-commerce-Platform" target="_blank" rel="noopener">
-                GitHub
-              </a>
-            </div>
-            <p>
-              Analysis of website traffic patterns and product performance for an ecommerce
-              scenario.
-            </p>
-          </article>
-
-          <article class="project-card">
-            <div class="project-title">Hospital Management System</div>
-            <div class="project-meta">
-              SQL · T-SQL ·
-              <a href="https://github.com/shahsanay25/Hospital-Management-System" target="_blank" rel="noopener">
-                GitHub
-              </a>
-            </div>
-            <p>
-              Relational schema and SQL queries for managing patients, appointments and resources
-              in a hospital.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills-section">
+    <!-- SKILLS TAB -->
+    <section id="skills" class="tab-content">
       <div class="section-inner">
         <h2 class="section-title">Skills</h2>
         <p class="section-subtitle">
@@ -1109,44 +1027,59 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="resume-badges">
+    <!-- CERTIFICATIONS TAB -->
+    <section id="certifications" class="tab-content">
+      <div class="section-inner">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">
+          Credentials that back up my day to day work with cloud and SQL.
+        </p>
+
+        <div class="cert-badges">
           <a
-            class="resume-badge"
+            class="cert-badge"
             href="https://www.credly.com/badges/d9c8e18b-86c6-4c11-9ffb-cd26588d881e"
             target="_blank"
             rel="noopener"
           >
-            Google Cloud Certified Professional Data Engineer
+            <span class="cert-label">Google Cloud Certified Professional Data Engineer</span>
+            <span class="cert-provider">Issued by Google Cloud via Credly</span>
           </a>
+
           <a
-            class="resume-badge"
+            class="cert-badge"
             href="https://www.credly.com/badges/e93ebf1c-a234-4e5a-910d-f068c88455f1"
             target="_blank"
             rel="noopener"
           >
-            Google Cloud Certified Associate (GCP)
+            <span class="cert-label">Google Cloud Certified Associate (GCP)</span>
+            <span class="cert-provider">Issued by Google Cloud via Credly</span>
           </a>
+
           <a
-            class="resume-badge"
+            class="cert-badge"
             href="https://www.credly.com/badges/8339498f-55cb-4592-90de-34556c39639b"
             target="_blank"
             rel="noopener"
           >
-            Oracle SQL Developer Certified
+            <span class="cert-label">Oracle SQL Developer Certified</span>
+            <span class="cert-provider">Issued by Oracle via Credly</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="education-section">
+    <!-- EDUCATION TAB -->
+    <section id="education" class="tab-content">
       <div class="section-inner">
-        <h2 class="section-title">Education and certifications</h2>
+        <h2 class="section-title">Education</h2>
 
         <div class="edu-grid">
           <div class="edu-card">
-            <div class="edu-title">Education</div>
+            <div class="edu-title">Degrees</div>
             <p>
               <strong>Master of Science, Data Analytics Engineering</strong><br />
               Northeastern University · Boston, MA · United States
@@ -1158,43 +1091,19 @@
           </div>
 
           <div class="edu-card">
-            <div class="edu-title">Certifications</div>
-            <ul class="cert-list">
-              <li>
-                <a
-                  href="https://www.credly.com/badges/d9c8e18b-86c6-4c11-9ffb-cd26588d881e"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Google Cloud Certified Professional Data Engineer
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.credly.com/badges/e93ebf1c-a234-4e5a-910d-f068c88455f1"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Google Cloud Certified Associate (GCP)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.credly.com/badges/8339498f-55cb-4592-90de-34556c39639b"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Oracle SQL Developer Certified
-                </a>
-              </li>
-            </ul>
+            <div class="edu-title">Focus areas</div>
+            <p>
+              Coursework and projects across data mining, database design, cloud data
+              warehousing, machine learning, statistical modeling and large scale data
+              processing.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
+    <!-- CONTACT TAB -->
+    <section id="contact" class="tab-content">
       <div class="section-inner">
         <h2 class="section-title">Contact</h2>
         <p class="section-subtitle">
@@ -1228,10 +1137,7 @@
             >
               Email me
             </a>
-            <button
-              class="btn-outline"
-              onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-            >
+            <button class="btn-outline" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
               Back to top
             </button>
           </div>
@@ -1257,6 +1163,41 @@
         roleIndex = (roleIndex + 1) % roles.length;
         roleSpan.textContent = roles[roleIndex];
       }, 1200);
+    }
+
+    // Tab navigation
+    const tabLinks = document.querySelectorAll("[data-tab]");
+    const tabs = document.querySelectorAll(".tab-content");
+
+    function activateTab(name) {
+      tabs.forEach((sec) => {
+        sec.classList.toggle("active", sec.id === name);
+      });
+
+      const navLinks = document.querySelectorAll("nav a[data-tab]");
+      navLinks.forEach((lnk) => {
+        lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
+      });
+
+      document.querySelector("main").scrollIntoView({ behavior: "smooth" });
+    }
+
+    tabLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const tabName = link.getAttribute("data-tab");
+        if (tabName) {
+          activateTab(tabName);
+        }
+      });
+    });
+
+    // Hero button -> How I can help tab
+    const heroBtn = document.getElementById("hero-help-btn");
+    if (heroBtn) {
+      heroBtn.addEventListener("click", () => {
+        activateTab("help");
+      });
     }
   </script>
 </body>
