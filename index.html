@@ -1151,54 +1151,77 @@
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  // Year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Rotating role text
-    const roles = ["Data Engineer", "Data Analytics Engineer", "Data Scientist"];
-    let roleIndex = 0;
-    const roleSpan = document.getElementById("role-rotate");
+  // Rotating role text
+  const roles = ["Data Engineer", "Data Analytics Engineer", "Data Scientist"];
+  let roleIndex = 0;
+  const roleSpan = document.getElementById("role-rotate");
 
-    if (roleSpan) {
-      setInterval(() => {
-        roleIndex = (roleIndex + 1) % roles.length;
-        roleSpan.textContent = roles[roleIndex];
-      }, 1200);
-    }
+  if (roleSpan) {
+    setInterval(() => {
+      roleIndex = (roleIndex + 1) % roles.length;
+      roleSpan.textContent = roles[roleIndex];
+    }, 1200);
+  }
 
-    // Tab navigation
-    const tabLinks = document.querySelectorAll("[data-tab]");
-    const tabs = document.querySelectorAll(".tab-content");
+  // --- Tab navigation + scrolling to sections ---
 
-    function activateTab(name) {
-      tabs.forEach((sec) => {
-        sec.classList.toggle("active", sec.id === name);
-      });
+  const tabLinks = document.querySelectorAll("[data-tab]");
+  const tabs = document.querySelectorAll(".tab-content");
+  const headerEl = document.querySelector("header");
+  const headerHeight = headerEl ? headerEl.offsetHeight : 0;
 
-      const navLinks = document.querySelectorAll("nav a[data-tab]");
-      navLinks.forEach((lnk) => {
-        lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
-      });
+  function scrollToSection(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
 
-      document.querySelector("main").scrollIntoView({ behavior: "smooth" });
-    }
+    const rect = target.getBoundingClientRect();
+    const offsetTop = rect.top + window.scrollY - headerHeight - 8; // small padding
 
-    tabLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const tabName = link.getAttribute("data-tab");
-        if (tabName) {
-          activateTab(tabName);
-        }
-      });
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+  }
+
+  function activateTab(name, doScroll = true) {
+    // show only the active tab section
+    tabs.forEach((sec) => {
+      sec.classList.toggle("active", sec.id === name);
     });
 
-    // Hero button -> How I can help tab
-    const heroBtn = document.getElementById("hero-help-btn");
-    if (heroBtn) {
-      heroBtn.addEventListener("click", () => {
-        activateTab("help");
-      });
+    // highlight active nav link
+    const navLinks = document.querySelectorAll("nav a[data-tab]");
+    navLinks.forEach((lnk) => {
+      lnk.classList.toggle("active", lnk.getAttribute("data-tab") === name);
+    });
+
+    // scroll directly to that section (below hero)
+    if (doScroll) {
+      scrollToSection(name);
     }
-  </script>
+  }
+
+  // Click handlers for nav links and header button with data-tab
+  tabLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tabName = link.getAttribute("data-tab");
+      if (tabName) {
+        activateTab(tabName, true);
+      }
+    });
+  });
+
+  // Hero button -> "How I can help" tab
+  const heroBtn = document.getElementById("hero-help-btn");
+  if (heroBtn) {
+    heroBtn.addEventListener("click", () => {
+      activateTab("help", true);
+    });
+  }
+</script>
 </body>
 </html>
