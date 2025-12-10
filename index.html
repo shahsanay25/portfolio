@@ -441,7 +441,7 @@
       margin: 0.2rem 0 0.25rem;
     }
 
-    .about-list {
+    /* .about-list {
       margin: 0.1rem 0 0.5rem;
       padding-left: 1rem;
       font-size: 0.9rem;
@@ -451,7 +451,21 @@
 
     .about-list li {
       margin-bottom: 0.22rem;
-    }
+    } */
+
+    .about-list {
+  margin: 0.1rem 0 0.5rem;
+  padding-left: 1.2rem; /* indents for bullets */
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: left;
+  list-style-type: disc; /* circular bullets */
+}
+
+.about-list li {
+  margin-bottom: 0.4rem; /* a bit more space per bullet */
+  line-height: 1.45;
+}
 
     /* How Can I Help */
 
@@ -823,14 +837,25 @@
               <li>Observability, anomaly detection and data quality validation at scale.</li>
             </ul>
 
-            <div class="about-subtitle">Key deliverables</div>
-            <ul class="about-list">
+            <!-- <div class="about-subtitle">Key deliverables</div> -->
+            <!-- <ul class="about-list">
               <li>Integrated more than 60 ETL pipelines on GCP, improving runtime by about 18 percent.</li>
               <li>Freed roughly 600 TB of unused GCS data through storage cleanup and optimization.</li>
               <li>Contributed to middle manager less Kubernetes pod design, unlocking around 1.6 million dollars in estimated annual savings.</li>
               <li>Migrated over 70 Hive and Spark jobs to BigQuery and Airflow, cutting infrastructure cost by about 1 million dollars annually.</li>
               <li>Tuned Druid and BigQuery workloads to improve dashboard performance by roughly 65 percent for operational and business users.</li>
+            </ul> -->
+            <div class="about-subtitle">Key deliverables</div>
+            <ul class="about-list">
+              <li>18% faster dashboards by optimizing 60+ GCP pipelines.</li>
+              <li>~$1M yearly savings by migrating 70+ Hive & Spark jobs to BigQuery/Airflow.</li>
+              <li>70% fewer production issues via automated checks and alerts.</li>
+              <li>600 TB storage savings improving query speed and cost.</li>
+              <li>~$1.6M annual savings via middle-manager-less GKE deployments.</li>
+              <li>65% faster analytics through query optimization and improved data models.</li>
             </ul>
+
+            
           </div>
         </div>
       </div>
