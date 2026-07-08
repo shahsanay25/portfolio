@@ -331,6 +331,7 @@
           <li class="nav-item nav-help"><a data-tab="help">How Can I Help?</a></li>
           <li class="nav-item nav-experience"><a data-tab="experience">Experience</a></li>
           <li class="nav-item nav-projects"><a data-tab="projects">Projects</a></li>
+          <li class="nav-item nav-github"><a data-tab="github">GitHub</a></li>
           <li class="nav-item nav-skills"><a data-tab="skills">Skills</a></li>
           <li class="nav-item nav-certifications"><a data-tab="certifications">Certifications</a></li>
           <li class="nav-item nav-education"><a data-tab="education">Education</a></li>
@@ -540,28 +541,36 @@
               <div class="exp-meta">United States · Oct 2023 – Present</div>
             </div>
             <p>
-              Build and support large-scale data pipelines, distributed analytics systems, AI-powered applications, and governed datasets using GCP, Kafka, Druid, BigQuery, Cloud Run, Vertex AI, and Kubernetes.
+              Build and support enterprise-scale data engineering systems across unified analytics, distributed Druid platforms, AI-powered assistants, and production reliability using BigQuery, Airflow, Kafka, Druid, GCP, AWS S3, Cloud Run, PostgreSQL, and Kubernetes.
             </p>
 
-            <div class="exp-section-title">Cloud-native data engineering</div>
+            <div class="exp-section-title">Unified Wireline + Wireless analytics platform</div>
             <ul class="exp-list">
-              <li>Architected batch and streaming data pipelines on GCP transforming Kafka telemetry into governed analytical datasets powering APIs, dashboards, AI/ML workflows, and enterprise reporting, reducing processing time by 23%.</li>
-              <li>Integrated 100TB+ of enterprise telemetry into BigQuery using Medallion architecture, reconciliation controls, schema validation, CDC processing, data profiling, and automated quality checks.</li>
-              <li>Reduced annual cloud costs by 56% from $720K+ to $320K+ through SQL performance tuning, PySpark workload optimization, partition pruning, clustering strategies, Dataproc optimization, and distributed query tuning.</li>
+              <li>Built a unified Medallion Architecture on BigQuery to standardize Wireline and Wireless analytics, creating trusted datasets for Looker dashboards, APIs, AI/ML workflows, and enterprise reporting.</li>
+              <li>Developed batch and CDC-driven pipelines using Airflow, BigQuery, and Python to transform high-volume source data into curated bronze, silver, and gold datasets with reconciliation and schema validation.</li>
+              <li>Enabled a single view across business segments by standardizing KPI logic, data quality checks, and governed data layers, reducing processing time by 23% and improving data reliability for downstream consumers.</li>
             </ul>
 
-            <div class="exp-section-title">Distributed analytics and reliability</div>
+            <div class="exp-section-title">Real-time analytics platform</div>
             <ul class="exp-list">
-              <li>Engineered distributed real-time analytics infrastructure processing 4.5PB+ of telemetry data using Apache Druid, Kafka, and AWS S3-backed deep storage, supporting 100K+ analytical queries per hour with sub-10 second latency.</li>
-              <li>Implemented observability and data reliability frameworks including lineage, SLA monitoring, anomaly detection, automated alerting, Grafana dashboards, Prometheus metrics, and ELK logging, reducing MTTR by 70%.</li>
-              <li>Containerized distributed applications including Apache Druid and Grafana using Docker, Kubernetes (GKE), and ArgoCD, supporting resilient deployments, production monitoring, and 99% SLA adherence.</li>
+              <li>Engineered a real-time telemetry analytics platform processing 4.5PB+ of data using Kafka, Apache Druid, and AWS S3-backed deep storage.</li>
+              <li>Optimized Druid ingestion, indexing, and query patterns to support 100K+ analytical queries per hour with sub-10 second latency for operational dashboards and APIs.</li>
+              <li>Implemented production monitoring across Kafka and Druid workloads using Grafana, Prometheus, and ELK for alerting, anomaly detection, and root cause analysis.</li>
             </ul>
 
-            <div class="exp-section-title">AI and agentic engineering</div>
+            <div class="exp-section-title">GCP batch analytics and platform reliability</div>
             <ul class="exp-list">
-              <li>Built a GenAI-powered assistant using Vertex AI, RAG, Cloud Run, PostgreSQL, and MCP tools to automate plan recommendations, eligibility validation, and secure enterprise API orchestration.</li>
-              <li>Designed an agentic AI engineering platform automating requirements analysis, ETL mappings, SQL generation, validation rules, code generation, and technical documentation, accelerating engineering delivery by 70%.</li>
-              <li>Used LLM-powered workflows to improve metadata retrieval, validation rule generation, documentation quality, and engineering handoffs while enforcing deterministic, controlled outputs.</li>
+              <li>Supported the Network Service Portal batch analytics platform processing 450TB+ through GCS, BigQuery, GCS, Apache Druid, and deep storage for enterprise dashboards and reporting.</li>
+              <li>Designed blue-green deployment strategy and supported MMLess Druid architecture on Kubernetes, reducing infrastructure cost by $1.6M annually while improving deployment reliability.</li>
+              <li>Reduced GCS storage footprint from 800TB to 350TB through lifecycle cleanup, data retention optimization, and storage reorganization while maintaining analytical availability.</li>
+              <li>Built reusable observability and operational practices using Grafana, Prometheus, and ELK to improve platform reliability, production support, and troubleshooting.</li>
+            </ul>
+
+            <div class="exp-section-title">AI engineering and automation</div>
+            <ul class="exp-list">
+              <li>Built an internal Claude-assisted AI engineering platform that automates requirements analysis, ETL mappings, SQL generation, validation rules, code generation, and technical documentation, improving engineering delivery by 70%.</li>
+              <li>Developed an AI-powered sales assistant using Vertex AI, Cloud Run, PostgreSQL, RAG, and MCP tools to automate plan recommendations, eligibility validation, and secure enterprise API orchestration.</li>
+              <li>Created controlled AI workflows with validation rules, reusable prompts, and deterministic output patterns to reduce manual engineering effort while improving consistency of generated artifacts.</li>
             </ul>
           </article>
 
@@ -594,20 +603,20 @@
               <div class="exp-meta">India · Sep 2019 – Jul 2021</div>
             </div>
             <p>
-              Built financial data engineering workflows for Morgan Stanley, supporting market data integration, portfolio analytics, investment research, financial reporting, and governed enterprise data marts.
+              Built financial and marketing data engineering workflows for Morgan Stanley, supporting market data integration, portfolio analytics, investment research, financial reporting, Adobe analytics, and governed enterprise data marts.
             </p>
 
             <div class="exp-section-title">Financial data engineering</div>
             <ul class="exp-list">
-              <li>Engineered 60+ enterprise ETL workflows using Informatica PowerCenter, Python, and SQL integrating Bloomberg, Capital IQ, FactSet, and market reference data supporting portfolio analytics, investment research, and financial reporting.</li>
+              <li>Engineered 60+ enterprise ETL workflows using Informatica PowerCenter, Python, and SQL integrating Bloomberg, Capital IQ, FactSet, and market reference data for portfolio analytics, investment research, and financial reporting.</li>
+              <li>Designed dimensional data models using Star Schema, Snowflake Schema, and SCD Type 2/3 methodologies improving analytical performance, historical auditing, metadata consistency, and self-service reporting adoption by 35%.</li>
               <li>Modernized enterprise ETL workflows by supporting Informatica PowerCenter version upgrades, including migration planning, workflow validation, regression testing, onboarding, and production rollout.</li>
-              <li>Improved ETL maintainability, scalability, and operational efficiency by reducing version-related maintenance effort by 30% through structured upgrade planning and validation.</li>
             </ul>
 
-            <div class="exp-section-title">Modeling, governance and stakeholder collaboration</div>
+            <div class="exp-section-title">Marketing analytics and data marts</div>
             <ul class="exp-list">
-              <li>Designed dimensional data models using Star Schema, Snowflake Schema, and SCD Type 2/3 methodologies improving analytical performance, historical auditing, metadata consistency, and self-service reporting adoption by 35%.</li>
-              <li>Partnered with analytics, business, and risk stakeholders to define governance controls, QA frameworks, validation standards, and operational support processes, reducing reconciliation issues by 25%.</li>
+              <li>Supported Adobe Analytics and Adobe Campaign data workflows by building marketing data mart logic for customer segmentation, campaign performance reporting, and business analytics.</li>
+              <li>Partnered with analytics, business, marketing, and risk stakeholders to define KPI frameworks, governance controls, QA standards, validation processes, and operational support workflows.</li>
             </ul>
           </article>
         </div>
@@ -617,43 +626,96 @@
     <section id="projects" class="highlights-wrapper">
       <div class="section-inner">
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Representative projects aligned with data engineering, AI/ML, finance, and cloud-native systems.</p>
+        <p class="section-subtitle">Selected project stories across data engineering, distributed analytics, AI automation, financial data, and GitHub work.</p>
         <div class="projects-grid">
           <div class="project-card">
-            <div class="project-title">Agentic AI Engineering Platform</div>
-            <div class="project-tagline">LLMs · RAG · MCP · SQL · ETL · Validation</div>
-            <p>Built an enterprise AI platform that automates requirements analysis, ETL mapping, SQL generation, validation rules, code generation, and technical documentation.</p>
-            <ul class="project-list"><li>Improved engineering productivity by 70%.</li><li>Introduced controlled validation workflows for AI-generated artifacts.</li></ul>
+            <div class="project-title">Unified Wireline + Wireless Analytics Platform</div>
+            <div class="project-tagline">BigQuery · Medallion Architecture · CDC · Airflow · Looker · APIs</div>
+            <p>Built a unified analytics platform that standardized Wireline and Wireless data into trusted bronze, silver, and gold datasets powering Looker dashboards, enterprise APIs, reporting, and AI/ML workflows.</p>
+            <ul class="project-list"><li>Processed 100TB+ enterprise datasets with CDC, reconciliation, schema validation, and quality checks.</li><li>Reduced processing time by 23% while improving consistency across business reporting.</li></ul>
           </div>
 
           <div class="project-card">
-            <div class="project-title">GenAI Enterprise Assistant</div>
-            <div class="project-tagline">Vertex AI · Cloud Run · PostgreSQL · RAG · MCP</div>
-            <p>Developed an AI-powered assistant that orchestrates secure enterprise workflows, performs eligibility validation, retrieves contextual data, and generates deterministic recommendations.</p>
+            <div class="project-title">Real-Time Analytics Platform</div>
+            <div class="project-tagline">Kafka · Apache Druid · AWS S3 Deep Storage · Grafana · Prometheus · ELK</div>
+            <p>Engineered a low-latency analytics platform for high-volume telemetry using Kafka, Apache Druid, and AWS S3-backed deep storage.</p>
+            <ul class="project-list"><li>Processed 4.5PB+ of streaming telemetry data.</li><li>Supported 100K+ analytical queries/hour with sub-10 second latency.</li><li>Built observability for ingestion, query performance, alerting, and root cause analysis.</li></ul>
           </div>
 
           <div class="project-card">
-            <div class="project-title">Distributed Analytics System</div>
-            <div class="project-tagline">Kafka · Apache Druid · AWS S3 · GKE</div>
-            <p>Engineered a high-volume analytics system processing 4.5PB+ of telemetry and supporting 100K+ queries per hour with sub-10 second latency.</p>
+            <div class="project-title">GCP Batch Analytics Platform</div>
+            <div class="project-tagline">GCS · BigQuery · Apache Druid · Kubernetes · ArgoCD · Blue-Green Deployments</div>
+            <p>Supported a large-scale Network Service Portal batch analytics flow moving data through GCS, BigQuery, GCS, Apache Druid, and deep storage for enterprise dashboards and reporting.</p>
+            <ul class="project-list"><li>Processed 450TB+ of batch analytics data.</li><li>Designed blue-green deployment strategy and supported MMLess Druid architecture, saving $1.6M annually.</li><li>Reduced GCS storage footprint from 800TB to 350TB through lifecycle cleanup and retention optimization.</li></ul>
           </div>
 
           <div class="project-card">
-            <div class="project-title">Cloud Data Modernization</div>
-            <div class="project-tagline">BigQuery · Airflow · Dataproc · PySpark</div>
-            <p>Modernized 76 Hive and Spark workloads into cloud-native BigQuery and Airflow pipelines, improving runtime performance by 18% and saving nearly $1M annually.</p>
+            <div class="project-title">AI Engineering Productivity Platform</div>
+            <div class="project-tagline">Claude · LLMs · Prompt Workflows · ETL · SQL · Validation</div>
+            <p>Built an internal AI platform using Claude-assisted workflows to automate data engineering tasks including requirements analysis, ETL mappings, SQL generation, validation rules, code generation, and documentation.</p>
+            <ul class="project-list"><li>Improved engineering delivery by 70%.</li><li>Introduced repeatable validation patterns for AI-generated artifacts.</li></ul>
           </div>
 
           <div class="project-card">
-            <div class="project-title">Financial Market Data Pipelines</div>
-            <div class="project-tagline">Morgan Stanley · Bloomberg · FactSet · Capital IQ</div>
-            <p>Built enterprise ETL workflows integrating market and reference datasets for portfolio analytics, investment research, financial reporting, and governed data marts.</p>
+            <div class="project-title">Vertex AI Sales Assistant</div>
+            <div class="project-tagline">Vertex AI · Cloud Run · PostgreSQL · RAG · MCP · APIs</div>
+            <p>Developed an AI-powered telecom sales assistant that automates plan recommendations, eligibility validation, customer context retrieval, and enterprise API orchestration through secure, deterministic workflows.</p>
           </div>
 
           <div class="project-card">
-            <div class="project-title">Data Quality and Observability Framework</div>
-            <div class="project-tagline">Grafana · Prometheus · ELK · Lineage</div>
-            <p>Implemented automated checks, SLA monitoring, anomaly detection, lineage tracking, and alerting to improve reliability and reduce MTTR by 70%.</p>
+            <div class="project-title">Financial & Marketing Data Engineering</div>
+            <div class="project-tagline">Morgan Stanley · Bloomberg · FactSet · Capital IQ · Adobe Analytics</div>
+            <p>Built enterprise ETL workflows and analytical data marts supporting portfolio analytics, investment research, financial reporting, Adobe Campaign, Adobe Analytics, customer segmentation, and marketing performance reporting.</p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Data Quality & Observability Framework</div>
+            <div class="project-tagline">Grafana · Prometheus · ELK · Lineage · SLA Monitoring</div>
+            <p>Implemented common monitoring and reliability patterns across batch and real-time platforms using Grafana, Prometheus, ELK, anomaly detection, SLA monitoring, lineage, and root cause workflows.</p>
+            <ul class="project-list"><li>Reduced MTTR by 70% through better alerting, visibility, and production diagnostics.</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="github" class="highlights-wrapper">
+      <div class="section-inner">
+        <h2 class="section-title">GitHub Projects</h2>
+        <p class="section-subtitle">Academic and hands-on analytics projects showing applied machine learning, data analysis, and financial modeling foundations.</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-title">Credit Risk Assessment Model</div>
+            <div class="project-tagline">Python · Jupyter Notebook · Machine Learning · Financial Risk</div>
+            <p>Built a credit risk modeling project focused on assessing borrower default risk and supporting lending decision analysis.</p>
+            <p><a href="https://github.com/shahsanay25/Credit-Risk-Assessment-Model" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">SBA Loan Analysis</div>
+            <div class="project-tagline">R · Data Wrangling · Loan Analysis · Banking</div>
+            <p>Analyzed SBA loan data to understand loan approval, default risk, and fraud-related patterns using data wrangling and exploratory analytics.</p>
+            <p><a href="https://github.com/shahsanay25/SBA-Loan-Analysis" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Bank Term Deposit Subscription Classifier</div>
+            <div class="project-tagline">Python · Classification · Marketing Analytics · Banking</div>
+            <p>Developed a classification model to predict whether banking customers would subscribe to term deposits based on marketing campaign data.</p>
+            <p><a href="https://github.com/shahsanay25/Bank-Term-Deposit-Subscription-Classifier" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Video Game Sales Analysis</div>
+            <div class="project-tagline">R · Statistics · Clustering · Time Series · Text Analysis</div>
+            <p>Explored video game sales trends across regions, publishers, platforms, genres, and critic/user scores using statistical and analytical techniques.</p>
+            <p><a href="https://github.com/shahsanay25/VideoGame-Sales-Analysis" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Portfolio Website</div>
+            <div class="project-tagline">HTML · CSS · Responsive Design · GitHub Pages</div>
+            <p>Personal portfolio website showcasing data engineering experience, AI projects, cloud work, financial data engineering, and selected GitHub projects.</p>
+            <p><a href="https://github.com/shahsanay25" target="_blank" rel="noopener">View GitHub Profile →</a></p>
           </div>
         </div>
       </div>
